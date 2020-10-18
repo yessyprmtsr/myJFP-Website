@@ -118,23 +118,23 @@
         <h1>Data Pengirim</h1>
         <div class="form-group">
         <label for="exampleFormControlInput1">Nama Pengirim</label>
-        <input type="text" name="namaPengirim" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+        <input type="text" name="namaPengirim" class="form-control" id="exampleFormControlInput1" >
         </div>
         <div class="form-group">
         <label for="exampleFormControlInput1">Nomor Telefon</label>
-        <input type="number" name="phonePengirim" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+        <input type="number" name="phonePengirim" class="form-control" id="exampleFormControlInput1" >
         </div>
         <div class="form-group">
         <label for="exampleFormControlInput1">Nama Barang</label>
-        <input type="text" name="namaBarang" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+        <input type="text" name="namaBarang" class="form-control" id="exampleFormControlInput1" >
         </div>
         <div class="form-group">
         <label for="exampleFormControlInput1">Jenis Barang</label>
-        <input type="text" name="jenisBarang" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+        <input type="text" name="jenisBarang" class="form-control" id="exampleFormControlInput1" >
         </div>
         <div class="form-group">
         <label for="exampleFormControlInput1">Berat Barang</label>
-        <input type="number" name="beratBarang" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+        <input type="number" name="beratBarang" class="form-control" id="exampleFormControlInput1" >
         </div>
         <div class="form-group">
             <label for="exampleFormControlSelect1">Jenis Service</label>
@@ -174,11 +174,11 @@
         <h1>Data Penerima</h1>
         <div class="form-group">
         <label for="exampleFormControlInput1">Nama</label>
-        <input type="text" name="namaPenerima" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+        <input type="text" name="namaPenerima" class="form-control" id="exampleFormControlInput1" >
         </div>
         <div class="form-group">
         <label for="exampleFormControlInput1">Nomor Telefon</label>
-        <input type="number" name="phonePenerima" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+        <input type="number" name="phonePenerima" class="form-control" id="exampleFormControlInput1" >
         </div>
         <div class="form-group">
             <label for="exampleFormControlTextarea1">Alamat Penerima</label>

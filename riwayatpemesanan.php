@@ -37,6 +37,16 @@
     $namaPenerima = $_POST['namaPenerima'];
     $phonePenerima = $_POST['phonePenerima'];
     $alamatPenerima = $_POST['alamatPenerima'];
+        if($jenisService == "OKE"){
+            $oke = 12000 ;
+            $totalPrice = $beratBarang*$oke;
+        } else if ($jenisService == "YES"){
+            $yes = 20000;
+            $totalPrice = $beratBarang*$yes;
+        } else if ($jenisService == "REGULER"){
+            $reg = 18000;
+            $totalPrice = $beratBarang*$reg;
+        }
     } else {
         header('Location: pemesanan.php');
     }
@@ -155,7 +165,7 @@
       <td><?= $namaBarang?></td>
       <td><?= $jenisBarang?></td>
       <td><?= $beratBarang?></td>
-      <td>20000</td>
+      <td><?= $totalPrice?></td>
       <td>
       <li class="list-inline-item">
 			<button class="btn btn-primary btn-sm rounded-0" type="button" data-toggle="modal" data-target="#exampleModal" data-placement="top" title="Detail"><i class="fa fa-eye"></i></button>
@@ -225,7 +235,7 @@
           </div>
           <div class="form-group">
             <label for="message-text" class="col-form-label">Total Bayar:</label>
-            2000
+            <?= $totalPrice?>
           </div>
       </div>
     </div>
