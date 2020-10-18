@@ -130,6 +130,7 @@
         </div>
     </div>
     <section class="sample-text-area">
+    <div class="container box_1170">
         <table class="table table-hover">
     <thead>
     <tr>
@@ -158,7 +159,6 @@
       <td>
       <li class="list-inline-item">
 			<button class="btn btn-primary btn-sm rounded-0" type="button" data-toggle="modal" data-target="#exampleModal" data-placement="top" title="Detail"><i class="fa fa-eye"></i></button>
-		    <button class="btn btn-info btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
     </li>
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -180,51 +180,53 @@
           </div>
           <div class="form-group">
             <label for="message-text" class="col-form-label">Nama Barang:</label>
-            <?= $phonePengirim?>
+            <?= $namaBarang?>
           </div>
           <div class="form-group">
             <label for="message-text" class="col-form-label">Jenis Barang:</label>
-            <?= $phonePengirim?>
+            <?= $jenisBarang?>
           </div>
           <div class="form-group">
             <label for="message-text" class="col-form-label">Berat Barang:</label>
-            <?= $phonePengirim?>
+            <?= $beratBarang?>
           </div>
           <div class="form-group">
             <label for="message-text" class="col-form-label">Jenis Service:</label>
-            <?= $phonePengirim?>
+            <?= $jenisService?>
           </div>
           <div class="form-group">
-            <label for="message-text" class="col-form-label">Nomor Telefon Pengirim:</label>
-            <?= $phonePengirim?>
+          <label for="message-text" class="col-form-label">Waktu Pickup</label>
+                <div class="row">
+                <div class="col-lg-6">
+                <label for="message-text" class="col-form-label">Tanggal Antar:</label>
+                    <?= $tanggalAntar?>
+                </div>
+                <div class="col-lg-6">
+                <label for="message-text" class="col-form-label">Jam Antar: </label>
+                    <?= $waktuAntar?>
+                </div>
+                </div>
+            </div>
+        <div class="form-group">
+            <label for="message-text" class="col-form-label">Metode Pembayaran:</label>
+            <?= $bayar?>
           </div>
           <div class="form-group">
-            <label for="message-text" class="col-form-label">Nomor Telefon Pengirim:</label>
-            <?= $phonePengirim?>
+            <label for="message-text" class="col-form-label">Nama Penerima:</label>
+            <?= $namaPenerima?>
           </div>
           <div class="form-group">
-            <label for="message-text" class="col-form-label">Nomor Telefon Pengirim:</label>
-            <?= $phonePengirim?>
+            <label for="message-text" class="col-form-label">Nomor Telefon Penerima:</label>
+            <?= $phonePenerima?>
           </div>
           <div class="form-group">
-            <label for="message-text" class="col-form-label">Nomor Telefon Pengirim:</label>
-            <?= $phonePengirim?>
+            <label for="message-text" class="col-form-label">Alamat Penerima:</label>
+            <?= $alamatPenerima?>
           </div>
           <div class="form-group">
-            <label for="message-text" class="col-form-label">Nomor Telefon Pengirim:</label>
-            <?= $phonePengirim?>
+            <label for="message-text" class="col-form-label">Total Bayar:</label>
+            2000
           </div>
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">Nomor Telefon Pengirim:</label>
-            <?= $phonePengirim?>
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">Nomor Telefon Pengirim:</label>
-            <?= $phonePengirim?>
-          </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
@@ -232,6 +234,7 @@
       </td>
     </tbody>
 </table>
+</div>
 </div>
     </section>
     <script src="assetscustomer/js/vendor/modernizr-3.5.0.min.js"></script>
