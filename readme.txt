@@ -4,8 +4,8 @@ Data Pengirim
 2. Alamat
 3. No telepon
 4. Barang
-5. Jumlah barang
-6. Jenis barang
+5. Jenis barang
+6. Berat Barang
 7. Jenis Service
 8. Tanggal Ambil
 9. Waktu Ambil
@@ -24,7 +24,8 @@ Data Penerima
 - Nama Penerima
 - Nama barang
 - Jenis Barang
-- Jumlah Barang
+- Berat Barang
+
 
 3. Manajemen Transaction => admin => adam
 -  RESI Number
