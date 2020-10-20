@@ -73,33 +73,33 @@
 		</div>
 
 <div class="input-field col s12">
-   <label for="id">ID Barang</label>
-<input id="id" type="text" class="form-control" name ="idbarang">
+   <label for="idbarang">ID Barang</label>
+<input id="idbarang" type="text" class="form-control" name ="idbarang">
 
 </div>
     </div>
     <div class="row">
 <div class="input-field col s12">
-  <label for="sender">Sender Name</label>
-<input id="sender" type="text" class="form-control" name ="sendername">
+  <label for="sendername">Sender Name</label>
+<input id="sendername" type="text" class="form-control" name ="sendername">
 
 </div>
     </div>
     <div class="row">
     <div class="input-field col s12">
-      <label for="recepient">Recepient Name</label>
-<input id="recepient" type="text" class="form-control" name ="recepientname">
+      <label for="recepientname">Recepient Name</label>
+<input id="recepientname" type="text" class="form-control" name ="recepientname">
 
 </div>
     </div>
     <div class="row">
     <div class="input-field col s12">
-      <label for="barang">Nama Barang</label>
-<input id="barang" type="text" class="form-control" name ="namabarang">
+      <label for="namabarang">Nama Barang</label>
+<input id="namabarang" type="text" class="form-control" name ="namabarang">
 
 <div class="input-field col s12">
    <label for="exampleFormControlSelect1">Jenis Barang</label>
- <select  name="jenisService" class="form-control" id="exampleFormControlSelect1">
+ <select  name="jenisbarang" class="form-control" id="exampleFormControlSelect1">
  <option value="Electronics">Electronics</option>
 <option value="Otomotif">Otomotif</option>
  <option value="Fashion">Fashion</option>
@@ -112,6 +112,6 @@
     </div>
     <div class="row">
     <div class="input-field col s12">
-      <label for="jenis">Berat Barang</label>
-<input id="berat" type="text" class="form-control" name ="beratbarang">
+      <label for="beratbarang">Berat Barang</label>
+<input id="beratbarang" type="text" class="form-control" name ="beratbarang">
 </body>
