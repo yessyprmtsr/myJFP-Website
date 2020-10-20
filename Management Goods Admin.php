@@ -114,4 +114,49 @@
     <div class="input-field col s12">
       <label for="beratbarang">Berat Barang</label>
 <input id="beratbarang" type="text" class="form-control" name ="beratbarang">
+<div class="input-field col-lg-6">
+                     <input type="submit" value="Save" style="margin-left: 275px" class="btn btn-outline-primary">
+                                  </div>
+                                    
+                                </form>
+                                  </div>	       
+                                </div>
+                               
+                            </div>
+                          
+                        </div>
+                     
+                    </div> 
+           
+			</div>
+      
+            </div>
+       
+        </div>
+
+    <script src="target-free-admin-template/assets/js/jquery-1.10.2.js"></script>
+	
+	<!-- Bootstrap Js -->
+    <script src="target-free-admin-template/assets/js/bootstrap.min.js"></script>
+	
+	<script src="target-free-admin-template/assets/materialize/js/materialize.min.js"></script>
+	
+    <!-- Metis Menu Js -->
+    <script src="target-free-admin-template/assets/js/jquery.metisMenu.js"></script>
+    <!-- Morris Chart Js -->
+    <script src="target-free-admin-template/assets/js/morris/raphael-2.1.0.min.js"></script>
+    <script src="target-free-admin-template/assets/js/morris/morris.js"></script>
+	
+	
+	<script src="target-free-admin-template/assets/js/easypiechart.js"></script>
+	<script src="target-free-admin-template/assets/js/easypiechart-data.js"></script>
+	
+	 <script src="target-free-admin-template/assets/js/Lightweight-Chart/jquery.chart.js"></script>
+	
+    <!-- Custom Js -->
+    <script src="target-free-admin-template/assets/js/custom-scripts.js"></script> 
+ 
+
 </body>
+
+</html>
