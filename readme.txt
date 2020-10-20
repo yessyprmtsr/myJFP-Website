@@ -1,3 +1,10 @@
+Anggota Kelompok
+1. Adam Satya Kencana
+2. Yessy Permatasari
+3. Daniel Alexander Polii
+4. Bryano Sandy Rizky
+5. Ayuba Jobarteh
+
 1. Pemesanan: => customer => yessy
 Data Pengirim
 1. Nama
