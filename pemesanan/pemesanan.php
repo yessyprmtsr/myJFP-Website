@@ -112,7 +112,7 @@
     </div>
     <section class="sample-text-area">
 		<div class="container box_1170">
-        <form action="riwayatpemesanan.php" method="post">
+        <form action="simpan.php" method="post">
         <div class="row">
         <div class="col-lg-6">
         <h1>Data Pengirim</h1>
@@ -185,7 +185,7 @@
             <textarea name="alamatPenerima" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
         </div>
         <div class="form-group">
-            <input type="submit" value="Booking" style="margin-left: 200px" class="boxed-btn3-line">
+            <input type="submit" name="submit" value="Booking" style="margin-left: 200px" class="boxed-btn3-line">
         </div>
         </div>
         </div>

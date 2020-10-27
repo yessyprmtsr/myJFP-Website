@@ -22,11 +22,6 @@
     <title> Booking Pick Up Delivery</title>
 </head>
 <body>
-<script>
-    function checkDelete(){
-        return confirm('Are you sure?');
-    }
-</script>
 <header>
         <div class="header-area ">
             <div class="header-top_area d-none d-lg-block">
@@ -109,127 +104,93 @@
             <div class="justify-center row">
                 <div class="col-xl-12">
                     <div class="bradcam_text text-center">
-                        <h3>History PickUp Delivery</h3>
+                        <h3>Edit Booking PickUp Delivery</h3>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <section class="sample-text-area">
-    <div class="container box_1170">
-        <table class="table table-hover">
-    <thead>
-    <tr>
-      <th scope="col">RESI Number</th>
-      <th scope="col">Nama Pengirim</th>
-      <th scope="col">Nomor Telefon Pengirim</th>
-      <th scope="col">Nama Barang</th>
-      <th scope="col">Jenis Barang</th>
-      <th scope="col">Berat Barang</th>
-      <th scope="col">Total Bayar</th>
-      <th scope="col">Aksi</th>
-    </tr>
-    <?
-    $query = mysqli_query($koneksi, "SELECT * FROM tb_pesanan") or die("Query salah");
-    foreach ($query as $data){
-    ?>
-    </thead>
-    <tbody>
-    <th scope="row">
-        <?php
-         echo $data['resi'];
-        ?>
-      </th>
-      <td><?= $data['resi'] ?> </td>
-      <td><?= $data['phonePengirim']?></td>
-      <td><?= $data['namaBarang']?></td>
-      <td><?= $data['jenisBarang']?></td>
-      <td><?= $data['beratBarang']?></td>
-      <td><?= $data['totalPrice']?></td>
-      <td>
-      <li class="list-inline-item">
-            <button class="btn btn-primary btn-sm rounded-0" type="button" data-toggle="modal" data-target="#exampleModal" data-placement="top" title="Detail"><i class="fa fa-eye"></i></button>
-            <a href="form_edit.php?resi=<?=$data['resi']?>" class="btn btn-primary btn-sm rounded-0" type="button" data-toggle="modal" data-target="#exampleModal" data-placement="top" title="Edit"><i class="fa fa-pencil"></i></a>
-            <a href="hapus.php?resi=<?=$data['resi']?>" onclick="return confirm('Are you sure?')" class="btn btn-primary btn-sm rounded-0" type="button" data-toggle="modal" data-target="#exampleModal" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
-    </li>
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Detail Booking</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Nama Pengirim: </label>
-            <?=  $data['resi']?>
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">Nomor Telefon Pengirim:</label>
-            <?= $data['phonePengirim']?>
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">Nama Barang:</label>
-            <?=$data['namaBarang']?>
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">Jenis Barang:</label>
-            <?= $data['jenisBarang']?>
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">Berat Barang:</label>
-            <?= $data['beratBarang']?>
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">Jenis Service:</label>
-            <?= $data['jenisService']?>
-          </div>
-          <div class="form-group">
-          <label for="message-text" class="col-form-label">Waktu Pickup</label>
-                <div class="row">
+		<div class="container box_1170">
+        <form action="edit.php" method="post">
+        <div class="row">
+        <div class="col-lg-6">
+        <h1>Data Pengirim</h1>
+        <div class="form-group">
+        <label for="exampleFormControlInput1">Nama Pengirim</label>
+        <input type="text" name="namaPengirim" class="form-control" id="exampleFormControlInput1" >
+        </div>
+        <div class="form-group">
+        <label for="exampleFormControlInput1">Nomor Telefon</label>
+        <input type="number" name="phonePengirim" class="form-control" id="exampleFormControlInput1" >
+        </div>
+        <div class="form-group">
+        <label for="exampleFormControlInput1">Nama Barang</label>
+        <input type="text" name="namaBarang" class="form-control" id="exampleFormControlInput1" >
+        </div>
+        <div class="form-group">
+        <label for="exampleFormControlInput1">Jenis Barang</label>
+        <input type="text" name="jenisBarang" class="form-control" id="exampleFormControlInput1" >
+        </div>
+        <div class="form-group">
+        <label for="exampleFormControlInput1">Berat Barang</label>
+        <input type="number" name="beratBarang" class="form-control" id="exampleFormControlInput1" >
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Jenis Service</label>
+            <select  name="jenisService" class="form-control" id="exampleFormControlSelect1">
+            <option value="OKE">OKE</option>
+            <option value="YES">YES</option>
+            <option value="REGULER">REGULER</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Waktu Delivery</label>
+            <div class="row">
                 <div class="col-lg-6">
-                <label for="message-text" class="col-form-label">Tanggal Antar:</label>
-                    <?= $data['tanggalAntar']?>
+                <label for="inputZip">Tanggal</label>
+				<input type="date" class="form-control" name="tanggalAntar">
                 </div>
                 <div class="col-lg-6">
-                <label for="message-text" class="col-form-label">Jam Antar: </label>
-                    <?= $data['tanggalAntar']?>
-                </div>
+                <label for="inputZip">Jam</label>
+				<input type="time" class="form-control" name="waktuAntar">
                 </div>
             </div>
+        </div>
         <div class="form-group">
-            <label for="message-text" class="col-form-label">Metode Pembayaran:</label>
-            <?= $data['bayar']?>
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">Nama Penerima:</label>
-            <?= $data['namaPenerima']?>
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">Nomor Telefon Penerima:</label>
-            <?= $data['phonePenerima']?>
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">Alamat Penerima:</label>
-            <?= $data['alamatPenerima']?>
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">Total Bayar:</label>
-            <?= $data['alamatPenerima']?>
-          </div>
-      </div>
-    </div>
-  </div>
-</div>
-      </td>
-    </tbody>
-    <?
-    }?>
-</table>
-</div>
-</div>
+            <label for="exampleFormControlSelect1">Metode Pembayaran</label>
+            <select name="bayar" class="form-control" id="exampleFormControlSelect1">
+            <option value="Tunai">Tunai</option>
+            <option value="Transfer">Transfer</option>
+            <option value="Tunai">Tunai di Penerima</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Alamat Pengirim</label>
+            <textarea name="alamatPengirim" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+        </div>
+        <div class="col-lg-6">
+        <h1>Data Penerima</h1>
+        <div class="form-group">
+        <label for="exampleFormControlInput1">Nama</label>
+        <input type="text" name="namaPenerima" class="form-control" id="exampleFormControlInput1" >
+        </div>
+        <div class="form-group">
+        <label for="exampleFormControlInput1">Nomor Telefon</label>
+        <input type="number" name="phonePenerima" class="form-control" id="exampleFormControlInput1" >
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Alamat Penerima</label>
+            <textarea name="alamatPenerima" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+            <input type="submit" name="submit" value="Booking" style="margin-left: 200px" class="boxed-btn3-line">
+        </div>
+        </div>
+        </div>
+        </form>
+        </div>
     </section>
     <script src="assetscustomer/js/vendor/modernizr-3.5.0.min.js"></script>
         <script src="assetscustomer/js/vendor/jquery-1.12.4.min.js"></script>
@@ -249,16 +210,5 @@
         <script src="assetscustomer/js/jquery.magnific-popup.min.js"></script>
         <script src="assetscustomer/js/plugins.js"></script>
         <script src="assetscustomer/js/gijgo.min.js"></script>
-        <script>
-            $('#exampleModal').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget) // Button that triggered the modal
-            var recipient = button.data('whatever') // Extract info from data-* attributes
-            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-            var modal = $(this)
-            modal.find('.modal-title').text('Detail Booking')
-            modal.find('.modal-body input').val(recipient)
-            })
-        </script>
 </body>
 </html>
