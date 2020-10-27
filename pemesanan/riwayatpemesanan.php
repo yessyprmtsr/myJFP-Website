@@ -149,7 +149,7 @@
       <td>
       <li class="list-inline-item">
             <button class="btn btn-primary btn-sm rounded-0" type="button" data-toggle="modal" data-target="#exampleModal" data-placement="top" title="Detail"><i class="fa fa-eye"></i></button>
-            <a href="form_edit.php?resi=<?=$data['resi']?>" class="btn btn-primary btn-sm rounded-0" type="button" data-toggle="modal" data-target="#exampleModal" data-placement="top" title="Edit"><i class="fa fa-pencil"></i></a>
+            <a href="edit_pemesanan.php?resi=<?=$data['resi']?>" class="btn btn-primary btn-sm rounded-0" type="button" data-toggle="modal" data-target="#exampleModal" data-placement="top" title="Edit"><i class="fa fa-pencil"></i></a>
             <a href="hapus.php?resi=<?=$data['resi']?>" onclick="return confirm('Are you sure?')" class="btn btn-primary btn-sm rounded-0" type="button" data-toggle="modal" data-target="#exampleModal" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
     </li>
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
