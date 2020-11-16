@@ -1,48 +1,44 @@
-<?php 
+<?php
 session_start();
-
-$servername = "localhost:3306";
-$username = "root";
-$password = "";
-$dbname = "db_myjfp";
-
-$message = "";
-
-if(count($_POST) > 0){
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-  }
-
-
-$result = mysqli_query($conn,"SELECT * FROM user WHERE username = '" . $_POST["username"] . "' AND password = '". $_POST["password"]."'" );
-
-$row = mysqlI_fetch_array($result);
-
-if( is_array($row)){
-
-// retrieve fields from the login form
- $_SESSION['username'] = $row['username'];
- $_SESSION['password'] = $row['password'];
-
-}else {
-    $message = "Invalid Username or Password";
+require 'controller.php';
+//cek login pa belom
+if(isset($_SESSION['login'])){
+    header("Location: pemesanan.php");
+    exit;
 }
+if(isset($_POST['login'])){
+    $username = $_POST["username"];
+    $password = $_POST["password"];
 
+    $result = mysqli_query($koneksi,"SELECT*FROM user WHERE username = '$username'");
+    //cek username
+        if(mysqli_num_rows($result) === 1){
+        //cek pw
+        $row = mysqli_fetch_assoc($result);
+        //cek string sama ga dg hashnya
+        if(password_verify($password, $row["password"])){
+            //set session
+            $_SESSION["login"] = true;
+            $_SESSION["username"] = "username";
+            header("Location: pemesanan.php");
+            exit;
+        };
+    }
+    $error = true;
 }
-
-if (isset($_SESSION['username'])) {
-
-    header("Location: index.php");
+if(isset($_POST["register"])){
+if(registrasi($_POST) > 0){
+    echo "
+        <script>
+        alert('Data telah ditambahkan!');
+        </script>
+    ";
+}else{
+   echo mysqli_error($koneksi);
+}
 }
 
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,7 +46,7 @@ if (isset($_SESSION['username'])) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>myJFP-About</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
@@ -62,14 +58,14 @@ if (isset($_SESSION['username'])) {
             <ul class="menu">
                 <li><a href="home.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="booking.html">Booking</a></li>
+                <li><a href="pemesanan.php">Booking</a></li>
                 <li><a href="services.html">Services</a></li>
-
+                <li><a href="login.php">Login</a></li>
 
             </ul>
-            <ul class="form">
+            <!-- <ul class="form">
                 <input class="form-control mr-sm-2" type="text" placeholder="Search">
-            </ul>
+            </ul> -->
             <!-- <ul class="menu2">
                 <li><a href="login.html">LogIn</a></li> <span>|</span>
                  <li><a href="login.html">SignUp</a></li>
@@ -87,8 +83,6 @@ if (isset($_SESSION['username'])) {
             </div>
         </div>
     </section>
-
-    <!-- about section -->
     <div class="wrapper">
         <div class="title-text">
             <div class="title login">LogIn / SignUp</div>
@@ -101,36 +95,35 @@ if (isset($_SESSION['username'])) {
                 <label for="login" class="slide login">LogIn</label>
                 <label for="signup" class="slide signup">SignUp</label>
                 <div class="slide-tab">
-
                 </div>
             </div>
             <div class="form-inner">
                 <form action="" method="POST"  class="login">
-                <div class="message"><?php if($message!="") { echo $message; } ?></div>
+                <div class="message"></div>
                     <div class="field">
-                        <input type="text" name="username"  placeholder="email address / phone" required>
+                        <input type="text" name="username"  placeholder="email address" required>
                     </div>
                     <div class="field">
                         <input type="password" name="password"  placeholder="password" required>
                     </div>
-                    <div class="pass-link"><a href="#">Forget password?</a></div>
+                    <!-- <div class="pass-link"><a href="#">Forget password?</a></div> -->
                     <div class="field">
-                        <input type="submit" value="LogIn">
+                        <input type="submit" name="login" value="Login">
                     </div>
                     <div class="signup-link">Not a Member yet? <a href="#">SignUp now</a></div>
                 </form>
-                <form action="#" class="signup">
+                <form action=""  method="POST" class="signup">
                     <div class="field">
-                        <input type="text" placeholder="email address / phone" required>
+                        <input type="text" name="username" placeholder="email address" required>
                     </div>
                     <div class="field">
-                        <input type="password" placeholder="password" required>
+                        <input type="password" name="password" placeholder="password" required>
                     </div>
                     <div class="field">
-                        <input type="password" placeholder="confirm password" required>
+                        <input type="password2" name="password2" placeholder="confirm password" required>
                     </div>
                     <div class="field">
-                        <input type="submit" value="SignUp">
+                        <input type="submit" name="register" value="Signup">
                     </div>
                 </form>
             </div>
@@ -173,6 +166,4 @@ if (isset($_SESSION['username'])) {
 
     </footer>
 
-    <script src="script.js"></script>
-</body>
-</html>
+    <script src="../script.js"></script>

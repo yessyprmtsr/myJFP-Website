@@ -1,6 +1,17 @@
-<?
-include "koneksi.php";
-$resi=$_GET['resi'];
-$result = mysqli_query($koneksi, "DELETE FROM tb_pemesanan WHERE resi=$resi");
-header("Location:riwayatpemesanan.php")
+<?php
+require 'controller.php';
+$id = $_GET["id"];
+if(delete($id) > 0){
+    echo "
+    <script>
+        alert('Data Succesfull deleted');
+        document.location.href = 'riwayatpemesanan.php';
+    </script>";
+}else{
+    echo "
+    alert('Data failed deleted');
+    <script>
+        document.location.href = 'riwayatpemesanan.php';
+    </script>";
+}
 ?>

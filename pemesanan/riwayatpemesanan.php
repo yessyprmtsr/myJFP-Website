@@ -1,3 +1,31 @@
+<?php
+session_start();
+//untuk session
+if( !isset($_SESSION["login"])){
+    header("Location: login.php");
+    exit;
+}
+require 'controller.php';
+//get data semua dulu
+$pesan = read("SELECT * FROM pemesanan_barang");
+if(isset($_POST["submit"])){
+    if(edit($_POST) > 0){
+        echo "
+            <script>
+            alert('Data telah diupdate!');
+            </script>
+        ";
+        header("location:riwayatpemesanan.php");
+    }else{
+        echo "
+        <script>
+        alert('Data Gagal Ditambahkan!');
+        </script>
+        ";
+    }
+    }
+    
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,229 +36,187 @@
     <!-- Place favicon.ico in the root directory -->
 
     <!-- CSS here -->
-    <link rel="stylesheet" href="assetscustomer/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assetscustomer/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="assetscustomer/css/magnific-popup.css">
-    <link rel="stylesheet" href="assetscustomer/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assetscustomer/css/themify-icons.css">
-    <link rel="stylesheet" href="assetscustomer/css/nice-select.css">
-    <link rel="stylesheet" href="assetscustomer/css/flaticon.css">
-    <link rel="stylesheet" href="assetscustomer/css/gijgo.css">
-    <link rel="stylesheet" href="assetscustomer/css/animate.css">
-    <link rel="stylesheet" href="assetscustomer/css/slicknav.css">
-    <link rel="stylesheet" href="assetscustomer/css/style.css">
-    <title> Booking Pick Up Delivery</title>
+    <link rel="stylesheet" href="../assetscustomer/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assetscustomer/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../assetscustomer/css/magnific-popup.css">
+    <link rel="stylesheet" href="../assetscustomer/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../assetscustomer/css/themify-icons.css">
+    <link rel="stylesheet" href="../assetscustomer/css/nice-select.css">
+    <link rel="stylesheet" href="../assetscustomer/css/flaticon.css">
+    <link rel="stylesheet" href="../assetscustomer/css/gijgo.css">
+    <link rel="stylesheet" href="../assetscustomer/css/animate.css">
+    <link rel="stylesheet" href="../assetscustomer/css/slicknav.css">
+    <link rel="stylesheet" href="../assetscustomer/css/style.css">
+    <link rel="stylesheet" href="../style.css"> <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <title> History Booking Pick Up Delivery</title>
 </head>
 <body>
-<script>
-    function checkDelete(){
-        return confirm('Are you sure?');
-    }
-</script>
-<header>
-        <div class="header-area ">
-            <div class="header-top_area d-none d-lg-block">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-xl-4 col-lg-4">
-                            <div class="logo">
-                                <a href="index.html">
-                                    <img src="assetscustomer/img/logo_jne.png" alt="" width="200px" height="80px">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-xl-8 col-md-8">
-                            <div class="header_right d-flex align-items-center">
-                                <div class="short_contact_list">
-                                    <ul>
-                                        <li><a href="#"> <i class="fa fa-envelope"></i> jne@gmail.com</a></li>
-                                        <li><a href="#"> <i class="fa fa-phone"></i> 0342-5567-1234</a></li>
-                                    </ul>
-                                </div>
+<nav class="navbar">
+        <div class="max-width">
+            <div class="logo"><a href="#">my<span>JFP</span></a></div>
+            <ul class="menu">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="pemesanan.php">Booking</a></li>
+                <li><a href="services.html">Services</a></li>
+                <?php
+                if ( $_SESSION ["login"] == false )
+                {
+                ?>
+                 <li><a href="login.php">Login</a></li>
+                <?php
+                }
+                ?>
+                <?php
+                if ( $_SESSION ["login"] == true )
+                {
+                ?>
+                <li><a href="riwayatpemesanan.php">Booking History</a></li>
+                <li><a href="logout.php">Logout</a></li>
+                <?php
+                }
+                ?>
+            </ul>
+            <!-- <ul class="menu2">
+                <li><a href="login.html">LogIn</a></li> <span>|</span>
+                 <li><a href="login.html">SignUp</a></li>
+            </ul> -->
+        </div>
+    </nav>
 
-                                <div class="book_btn d-none d-lg-block">
-                                    <a class="boxed-btn3-line" href="#">LOGIN/REGISTER</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="sticky-header" class="main-header-area">
-                <div class="container">
-                    <div class="header_bottom_border">
-                        <div class="row align-items-center">
-                            <div class="col-12 d-block d-lg-none">
-                                <div class="logo">
-                                    <a href="index.html">
-                                        <img src="assetscustomer/img/logo_jne.png" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-xl-9 col-lg-9">
-                                <div class="main-menu  d-none d-lg-block">
-                                    <nav>
-                                        <ul id="navigation">
-                                            <li><a  href="index.html">home</a></li>
-                                            <li><a  href="service.html">Services</a></li>
-                                            <li><a href="contact.html">Career</a></li>
-                                            <li><a href="contact.html">Contact</a></li>
-                                            <li><a href="#">Pick Up Delivery <i class="ti-angle-down"></i></a>
-                                                <ul class="submenu">
-                                                    <li><a href="pemesanan.php">Booking PickUp Delivery</a></li>
-                                                    <li><a href="elements.html">My Booking History</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-3 d-none d-lg-block">
-                                <div class="Appointment justify-content-end">
-                                    <div class="search_btn">
-                                        <a data-toggle="modal" data-target="#exampleModalCenter" href="#">
-                                            <i class="ti-search"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="mobile_menu d-block d-lg-none"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+    <!-- home section -->
+    <section class="home" id="home">
+        <div class="max-width">
+            <div class="home-content">
+                <div class="text-1">Welcome to myJFP</div>
+                <div class="text-2">Your Satisfaction</div>
+                <div class="text-3">Is our<span> Priority</span></div>
             </div>
         </div>
-    </header>
-    <div class="bradcam_area bradcam_bg_1">
-        <div class="container">
-            <div class="justify-center row">
-                <div class="col-xl-12">
-                    <div class="bradcam_text text-center">
-                        <h3>History PickUp Delivery</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <section class="sample-text-area">
-    <div class="container box_1170">
+    </section>
+    <div class="container">
+                <h1 style="margin-top: 20px;text-align:center">History Booking</h1>
         <table class="table table-hover">
     <thead>
     <tr>
-      <th scope="col">RESI Number</th>
+      <th scope="col">ID Booking</th>
       <th scope="col">Nama Pengirim</th>
-      <th scope="col">Nomor Telefon Pengirim</th>
       <th scope="col">Nama Barang</th>
-      <th scope="col">Jenis Barang</th>
       <th scope="col">Berat Barang</th>
       <th scope="col">Total Bayar</th>
+      <th scope="col">Status</th>
       <th scope="col">Aksi</th>
     </tr>
-    <?
-    $query = mysqli_query($koneksi, "SELECT * FROM tb_pesanan") or die("Query salah");
-    foreach ($query as $data){
+    <?php 
+                if($pesan < [0] ){
+                    echo "
+                    <tr>
+                    <td>
+                    No Booking Found
+                    </td>
+                    </tr>
+                    ";
+                }
     ?>
-    </thead>
-    <tbody>
-    <th scope="row">
-        <?php
-         echo $data['resi'];
+    <?php
+            foreach($pesan as $data):
         ?>
-      </th>
-      <td><?= $data['resi'] ?> </td>
-      <td><?= $data['phonePengirim']?></td>
-      <td><?= $data['namaBarang']?></td>
-      <td><?= $data['jenisBarang']?></td>
-      <td><?= $data['beratBarang']?></td>
-      <td><?= $data['totalPrice']?></td>
-      <td>
-      <li class="list-inline-item">
-            <button class="btn btn-primary btn-sm rounded-0" type="button" data-toggle="modal" data-target="#exampleModal" data-placement="top" title="Detail"><i class="fa fa-eye"></i></button>
-            <a href="edit_pemesanan.php?resi=<?=$data['resi']?>" class="btn btn-primary btn-sm rounded-0" type="button" data-toggle="modal" data-target="#exampleModal" data-placement="top" title="Edit"><i class="fa fa-pencil"></i></a>
-            <a href="hapus.php?resi=<?=$data['resi']?>" onclick="return confirm('Are you sure?')" class="btn btn-primary btn-sm rounded-0" type="button" data-toggle="modal" data-target="#exampleModal" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
-    </li>
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Detail Booking</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Nama Pengirim: </label>
-            <?=  $data['resi']?>
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">Nomor Telefon Pengirim:</label>
-            <?= $data['phonePengirim']?>
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">Nama Barang:</label>
-            <?=$data['namaBarang']?>
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">Jenis Barang:</label>
-            <?= $data['jenisBarang']?>
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">Berat Barang:</label>
-            <?= $data['beratBarang']?>
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">Jenis Service:</label>
-            <?= $data['jenisService']?>
-          </div>
-          <div class="form-group">
-          <label for="message-text" class="col-form-label">Waktu Pickup</label>
-                <div class="row">
-                <div class="col-lg-6">
-                <label for="message-text" class="col-form-label">Tanggal Antar:</label>
-                    <?= $data['tanggalAntar']?>
+        <tr>
+            <td><?= $data["id"]; ?></td>
+            <td><?= $data["nama_pengirim"]; ?></td>
+            <td><?= $data["nama_barang"]; ?></td>
+            <td><?= $data["berat_barang"]; ?> Kg</td>
+            <td><?= $data["total_bayar"]; ?></td>
+            <td><?= $data["status"]; ?></td>
+            <td>
+                <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-eye"></i></a>
+                <a href="ubah.php?id=<?= $data["id"]; ?>" class="btn btn-danger btn-sm"><i class="fa fa-pen"></i></a>
+                <a href="hapus.php?id=<?= $data["id"]; ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+            </td>
+        </tr>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Detail Booking</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">Nama Pengirim: </label>
+                    <?= $data["nama_pengirim"]; ?>
                 </div>
-                <div class="col-lg-6">
-                <label for="message-text" class="col-form-label">Jam Antar: </label>
-                    <?= $data['tanggalAntar']?>
+                <div class="form-group">
+                    <label for="message-text" class="col-form-label">Nomor Telefon Pengirim:</label>
+                    <?= $data["nomor_telefon_pengirim"]; ?>
                 </div>
+                <div class="form-group">
+                    <label for="message-text" class="col-form-label">Nama Barang:</label>
+                    <?= $data["nama_barang"]; ?>
+                </div>
+                <div class="form-group">
+                    <label for="message-text" class="col-form-label">Jenis Barang:</label>
+                    <?= $data["jenis_barang"]; ?>
+                </div>
+                <div class="form-group">
+                    <label for="message-text" class="col-form-label">Berat Barang:</label>
+                    <?= $data["berat_barang"]; ?>
+                </div>
+                <div class="form-group">
+                    <label for="message-text" class="col-form-label">Jenis Service:</label>
+                    <?= $data["jenis_service"]; ?>
+                </div>
+                <div class="form-group">
+                    <label for="message-text" class="col-form-label">Tanggal Pesan:</label>
+                    <?= $data["tanggal_pesan"]; ?>
+                </div>
+                <div class="form-group">
+                    <label for="message-text" class="col-form-label">Waktu Pesan:</label>
+                    <?= $data["waktu_pesan"]; ?>
+                </div>
+                <div class="form-group">
+                    <label for="message-text" class="col-form-label">Metode Pembayaran:</label>
+                    <?= $data["metode_pembayaran"]; ?>
+                </div>
+                <div class="form-group">
+                    <label for="message-text" class="col-form-label">Bukti Pembayaran:</label>
+                    <br>
+                    <img src="assets/images/<?= $data["gambar"]; ?>" width="100" height="150">
+                </div>
+                <div class="form-group">
+                    <label for="message-text" class="col-form-label">Nomor Telefon Penerima:</label>
+                    <?= $data["nomor_telefon_penerima"]; ?>
+                </div>
+                <div class="form-group">
+                    <label for="message-text" class="col-form-label">Alamat Penerima:</label>
+                    <?= $data["alamat_penerima"]; ?>
+                </div>
+                <div class="form-group">
+                    <label for="message-text" class="col-form-label">Total Bayar:</label>
+                    <?= $data["total_bayar"]; ?>
                 </div>
             </div>
-        <div class="form-group">
-            <label for="message-text" class="col-form-label">Metode Pembayaran:</label>
-            <?= $data['bayar']?>
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">Nama Penerima:</label>
-            <?= $data['namaPenerima']?>
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">Nomor Telefon Penerima:</label>
-            <?= $data['phonePenerima']?>
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">Alamat Penerima:</label>
-            <?= $data['alamatPenerima']?>
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">Total Bayar:</label>
-            <?= $data['alamatPenerima']?>
-          </div>
-      </div>
-    </div>
-  </div>
-</div>
-      </td>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+            </div>
+        </div>
+        </div>
+        </div>
+        <?php
+        endforeach;
+        ?>
     </tbody>
-    <?
-    }?>
+                            <!-- modal edit -->
+                        
 </table>
 </div>
 </div>
-    </section>
     <script src="assetscustomer/js/vendor/modernizr-3.5.0.min.js"></script>
         <script src="assetscustomer/js/vendor/jquery-1.12.4.min.js"></script>
         <script src="assetscustomer/js/popper.min.js"></script>
@@ -249,6 +235,9 @@
         <script src="assetscustomer/js/jquery.magnific-popup.min.js"></script>
         <script src="assetscustomer/js/plugins.js"></script>
         <script src="assetscustomer/js/gijgo.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script>
             $('#exampleModal').on('show.bs.modal', function (event) {
             var button = $(event.relatedTarget) // Button that triggered the modal
