@@ -15,8 +15,7 @@ class CreateGoodsTable extends Migration
     {
         Schema::create('goods', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nama_pengirim');
-            $table->string('nama_penerima');
+            $table->string('nama_barang');
             $table->string('jenis_barang');
             $table->string('jumlah_barang');
 
