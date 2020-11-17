@@ -1,18 +1,53 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
-<?php   
-session_start();
+<?php
+// include database connection file
+include_once("index.php");
 
-// CHECK IF THE USER IS NOT LOGIN REDIRECT BACK TO LOGIN 
-if(!isset($_SESSION['username'])){
+// Check if form is submitted for user update, then redirect to homepage after update
+if(isset($_POST['update']))
+{   
+    $id = $_POST['id'];
 
-    header("Location: login.php");
+    $resi_number= $_POST['resi_number'];
+    $product_id= $_POST['product_id'];
+    $user_id= $_POST['user_id'];
+    $status = $_POST['status'];
+    $current_location = $_POST['current_location'];
+
+    // update user data
+    $result = mysqli_query($mysqli, "UPDATE booking SET resi_number='$resi_number',resi_number='$product_id',product_id='$user_id',user_id,'$status',status='$current_location',current_location WHERE id=$id");
+
+
+    // Redirect to homepage to display updated user in list
+    header("Location: index.php");
+}
+?>
+<?php
+// Display selected user data based on id
+// Getting id from url
+$id = $_GET['id'];
+
+// Fetech user data based on id
+$result = mysqli_query($mysqli, "SELECT * FROM booking WHERE id=$id");
+
+while($user_data = mysqli_fetch_array($result))
+{
+    
+
+    $resi_number= $_POST['resi_number'];
+    $product_id= $_POST['product_id'];
+    $user_id= $_POST['user_id'];
+    $status = $_POST['status'];
+    $current_location = $_POST['current_location'];
 
 }
-
 ?>
-
+<html>
+<head>  
+    <title>Edit User Data</title>
+</head>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -460,55 +495,9 @@ if(!isset($_SESSION['username'])){
         </div>
     <div class="col-lg-6">
     <div class="card">
-                        <div class="card-action">
-                          Details Output
-                        </div>
-                        <div class="card-content">
-
-                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                                <thead>
-                                                    <tr>
-                                                        <th>RESI Number:</th>
-                                                        <th>Product ID:</th>
-                                                        <th>User ID::</th>
-                                                        <th>Sending Status:</th>
-                                                        <th>Current Location:</th>
-                                                    </tr>
-
-                                                </thead>
-                                                <tbody>
-                                                <?php
-
-                                                $conn = mysqli_connect("localhost:3307", "root", "", "customer");
-
-                                                if ($conn->connect_error) {
-                                                    die("Connection failed: " . $conn->connect_error);
-                                                    }
-                                                    
-                                                $sql = "SELECT * FROM booking"; 
-
-                                                $result = $conn->query($sql);
-
-                                                if ($result->num_rows > 0) {
-                                                   
-                                                    while($row = $result->fetch_assoc()) {
-                                                        echo "<tr>
-                                                        <td>" .$row['resi_number']. "</td>
-                                                        <td>".$row['product_id']."</td>
-                                                        <td>".$row['user_id']."</td>
-                                                        <td>".$row['status']."</td>
-                                                        <td>".$row['current_location']."</td>
-                                                        <td><a href='edit.php?id=$row[id]'>Edit</a> | <a href='delete.php?id=$row[id]'>Delete</a></td></tr>";  
-                                                    }
-                                                }else {
-                                                echo "No result found";
-                                                }
-                                                $conn->close();
-                                                ?>
-                                            </tbody>
-                                        </table>
-                                </div>
-                               
+                        
+                                <div class="text-center">Edit Details </div>
+                            </div>
                             <!-- /.row (nested) -->
                         </div>
                         <!-- /.panel-body -->
