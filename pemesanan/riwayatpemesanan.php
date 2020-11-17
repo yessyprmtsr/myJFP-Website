@@ -156,6 +156,10 @@ if(isset($_POST["submit"])){
                     <?= $data["nomor_telefon_pengirim"]; ?>
                 </div>
                 <div class="form-group">
+                    <label for="message-text" class="col-form-label">Alamat Pengirim:</label>
+                    <?= $data["alamat_pengirim"]; ?>
+                </div>
+                <div class="form-group">
                     <label for="message-text" class="col-form-label">Nama Barang:</label>
                     <?= $data["nama_barang"]; ?>
                 </div>
@@ -187,6 +191,10 @@ if(isset($_POST["submit"])){
                     <label for="message-text" class="col-form-label">Bukti Pembayaran:</label>
                     <br>
                     <img src="assets/images/<?= $data["gambar"]; ?>" width="100" height="150">
+                </div>
+                <div class="form-group">
+                    <label for="message-text" class="col-form-label">Nama Penerima:</label>
+                    <?= $data["nama_penerima"]; ?>
                 </div>
                 <div class="form-group">
                     <label for="message-text" class="col-form-label">Nomor Telefon Penerima:</label>

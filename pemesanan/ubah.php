@@ -135,11 +135,15 @@ $book  = read("SELECT * FROM pemesanan_barang where id = $id")[0];
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">Jenis Service</label>
-                                <select name="jenis_service" class="form-control" id="exampleFormControlSelect1"  value="<?= $book["jenis_service"]  ?>">
-                                <option value="OKE">OKE</option>
-                                <option value="YES">YES</option>
-                                <option value="REGULER">REGULER</option>
+                                <select disabled name="jenis_service" class="form-control" id="exampleFormControlSelect1">
+                                <option value="OKE" <?php if($book['jenis_service']=='OKE') echo 'selected'; ?>>OKE</option>
+                                <option value="YES" <?php if($book['jenis_service']=='YES') echo 'selected'; ?>>YES</option>
+                                <option value="REGULER" <?php if($book['jenis_service']=='REGULER') echo 'selected'; ?>>REGULER</option>
                                 </select>
+                                <input type="hidden" name="jenis_service" value="OKE" <?php if($book['jenis_service']=='OKE') echo 'selected'; ?>>
+                                <input type="hidden" name="jenis_service" value="YES" <?php if($book['jenis_service']=='YES') echo 'selected'; ?>>
+                                <input type="hidden" name="jenis_service" value="REGULER" <?php if($book['jenis_service']=='REGULER') echo 'selected'; ?>>
+
                             </div>
                             <div class="form-group">
                                 <label>Waktu Delivery</label>
@@ -159,7 +163,7 @@ $book  = read("SELECT * FROM pemesanan_barang where id = $id")[0];
                                 <select onchange="yesnoCheck(this);" name="metode_pembayaran" class="form-control" id="exampleFormControlSelect1" value="<?= $book["metode_pembayaran"]; ?>">
                                 <option value="Tunai">Tunai</option>
                                 <option value="Transfer">Transfer</option>
-                                <option value="Tunai">Tunai di Penerima</option>
+                                <option value="TunaidiTempat">Tunai di Penerima</option>
                                 </select>
                             </div>
                             <div id="ifYes" style="display: none;"class="form-group">

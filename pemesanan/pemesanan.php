@@ -169,7 +169,7 @@ if(isset($_POST['count'])){
             <select onchange="yesnoCheck(this);" name="metode_pembayaran" class="form-control" id="exampleFormControlSelect1">
             <option value="Tunai">Tunai</option>
             <option value="Transfer">Transfer</option>
-            <option value="Tunai">Tunai di Penerima</option>
+            <option value="TunaidiTempat">Tunai di Penerima</option>
             </select>
         </div>
         <div id="ifYes" style="display: none;"class="form-group">
@@ -198,7 +198,8 @@ if(isset($_POST['count'])){
         </div>
         <div class="card-body">
             <h5 class="card-title">TOTAL</h5>
-            <input type="number" name="total_bayar" value="<?= $total_bayar?>" class="form-control" id="exampleFormControlInput1" >
+            <input type="hidden" name="total_bayar" value="<?= $total_bayar?>" class="form-control" id="exampleFormControlInput1" >
+            <input type="number" disabled name="total_bayar" value="<?= $total_bayar?>" class="form-control" id="exampleFormControlInput1" >
             <br>
             <button type="submit" name="count" style="margin-left: 200px" class="boxed-btn3-line"> Count
         </div>
