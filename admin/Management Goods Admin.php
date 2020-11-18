@@ -8,8 +8,7 @@
     <!-- <link rel="manifest" href="site.webmanifest"> -->
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="assets/materialize/css/materialize.min.css"
-        media="screen,projection" />
+    <link rel="stylesheet" href="assets/materialize/css/materialize.min.css" media="screen,projection" />
     <!-- Bootstrap Styles-->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
     <!-- FontAwesome Styles-->
@@ -145,27 +144,27 @@
     </div>
 
 
-    <script src="target-free-admin-template/assets/js/jquery-1.10.2.js"></script>
+    <script src="assets/js/jquery-1.10.2.js"></script>
 
     <!-- Bootstrap Js -->
-    <script src="target-free-admin-template/assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
 
-    <script src="target-free-admin-template/assets/materialize/js/materialize.min.js"></script>
+    <script src="assets/materialize/js/materialize.min.js"></script>
 
     <!-- Metis Menu Js -->
-    <script src="target-free-admin-template/assets/js/jquery.metisMenu.js"></script>
+    <script src="assets/js/jquery.metisMenu.js"></script>
     <!-- Morris Chart Js -->
-    <script src="target-free-admin-template/assets/js/morris/raphael-2.1.0.min.js"></script>
-    <script src="target-free-admin-template/assets/js/morris/morris.js"></script>
+    <script src="assets/js/morris/raphael-2.1.0.min.js"></script>
+    <script src="assets/js/morris/morris.js"></script>
 
 
-    <script src="target-free-admin-template/assets/js/easypiechart.js"></script>
-    <script src="target-free-admin-template/assets/js/easypiechart-data.js"></script>
+    <script src="assets/js/easypiechart.js"></script>
+    <script src="assets/js/easypiechart-data.js"></script>
 
-    <script src="target-free-admin-template/assets/js/Lightweight-Chart/jquery.chart.js"></script>
+    <script src="assets/js/Lightweight-Chart/jquery.chart.js"></script>
 
     <!-- Custom Js -->
-    <script src="target-free-admin-template/assets/js/custom-scripts.js"></script>
+    <script src="assets/js/custom-scripts.js"></script>
 
 
 </body>

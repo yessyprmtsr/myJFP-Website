@@ -5,7 +5,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Target Material Design Bootstrap Admin Template</title>
-
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="assets/materialize/css/materialize.min.css" media="screen,projection" />
     <!-- Bootstrap Styles-->
@@ -20,7 +19,6 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" href="assets/js/Lightweight-Chart/cssCharts.css">
 </head>
-
 <body>
     <div id="wrapper">
         <nav class="navbar navbar-default top-navbar" role="navigation">
@@ -33,10 +31,8 @@
                 </button>
                 <a class="navbar-brand waves-effect waves-dark" href="index.html"><i
                         class="large material-icons">track_changes</i> <strong>target</strong></a>
-
                 <div id="sideNav" href=""><i class="material-icons dp48">toc</i></div>
             </div>
-
             <ul class="nav navbar-top-links navbar-right">
                 <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown4"><i
                             class="fa fa-envelope fa-fw"></i> <i class="material-icons right">arrow_drop_down</i></a>
@@ -230,23 +226,17 @@
         <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
-
                   
                     <li>
                         <a href="form.html" class="active-menu waves-effect waves-dark"><i class="fa fa-edit"></i> User Management Form
                         </a>
                     </li>
-
-
-
                                 </ul>
-
                             </li>
                         </ul>
                     </li>
                    
                 </ul>
-
             </div>
 
         </nav>
@@ -261,9 +251,7 @@
                     <li><a href="#">Forms</a></li>
                     <li class="active">Data</li>
                 </ol>
-
             </div>
-
             <div id="page-inner">
                 <div class="row">
                     <div class="col-lg-12">
@@ -311,7 +299,6 @@
                                                 <input class="form-check-input" type="radio" id="inlineRadio2"
                                                     value="Admin" name="type">
                                                 <label class="form-check-label" for="inlineRadio2">Admin</label>
-
                                                 <a href="form.php" class="btn btn-primary">SUBMIT</a>
                                             </div>
                                         </div>
@@ -322,10 +309,6 @@
                         </div>
                     </div>
                 </div>
-
-
-
-
                 <!-- /.row (nested) -->
             </div>
             <!-- /.panel-body -->
@@ -344,28 +327,18 @@
     <!-- JS Scripts-->
     <!-- jQuery Js -->
     <script src="assets/js/jquery-1.10.2.js"></script>
-
     <!-- Bootstrap Js -->
     <script src="assets/js/bootstrap.min.js"></script>
-
     <script src="assets/materialize/js/materialize.min.js"></script>
-
     <!-- Metis Menu Js -->
     <script src="assets/js/jquery.metisMenu.js"></script>
     <!-- Morris Chart Js -->
     <script src="assets/js/morris/raphael-2.1.0.min.js"></script>
     <script src="assets/js/morris/morris.js"></script>
-
-
     <script src="assets/js/easypiechart.js"></script>
     <script src="assets/js/easypiechart-data.js"></script>
-
     <script src="assets/js/Lightweight-Chart/jquery.chart.js"></script>
-
     <!-- Custom Js -->
     <script src="assets/js/custom-scripts.js"></script>
-
-
 </body>
-
 </html>

@@ -5,7 +5,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Management transaction Admin</title>
-
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="assets/materialize/css/materialize.min.css" media="screen,projection" />
     <!-- Bootstrap Styles-->
@@ -34,10 +33,8 @@
                 <a class="navbar-brand waves-effect waves-dark" href="index.html">
                     <img src="assetscustomer/img/logo_jne.png" alt="">
                 </a>
-
                 <div id="sideNav" href=""><i class="material-icons dp48">toc</i></div>
             </div>
-
             <ul class="nav navbar-top-links navbar-right">
                 <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown4"><i
                             class="fa fa-envelope fa-fw"></i> <i class="material-icons right">arrow_drop_down</i></a>
@@ -51,28 +48,21 @@
                             class="material-icons right">arrow_drop_down</i></a></li>
             </ul>
         </nav>
-
         <!--/. NAV TOP  -->
         <!--/. NAV TOP  -->
         <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
-
                     <li>
                         <a href="index.html" class="waves-effect waves-dark"><i class="fa fa-dashboard"></i>
                             Dashboard</a>
                     </li>
-
-
                     <li>
                         <a href="form.html" class="active-menu waves-effect waves-dark"><i class="fa fa-edit"></i>
                             Transaction </a>
                     </li>
-
                 </ul>
-
             </div>
-
         </nav>
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper">
@@ -85,9 +75,7 @@
                     <li><a href="#">Transaction</a></li>
                     <li class="active">Data</li>
                 </ol>
-
             </div>
-
             <div id="page-inner">
                 <div class="clearBoth"></div>
                 <form class="col s12" action="historytransaction.php" method="post">
@@ -111,7 +99,6 @@
                                             <label for="icon_prefix">Nama Pengirim</label>
                                         </div>
                                         <div class="input-field col s6">
-
                                             <input id="icon_telephone" type="number" class="form-control"
                                                 name="senderphone">
                                             <label for="icon_telephone">No Telepon</label>
@@ -199,11 +186,9 @@
                                             <input type="submit" value="Save" style="margin-left: 275px"
                                                 class="btn btn-outline-primary">
                                         </div>
-
                 </form>
             </div>
         </div>
-
     </div>
     <!-- /.row (nested) -->
     </div>
@@ -218,29 +203,20 @@
     <!-- /. WRAPPER  -->
     <!-- JS Scripts-->
     <!-- jQuery Js -->
-    <script src="target-free-admin-template/assets/js/jquery-1.10.2.js"></script>
-
+    <script src="assets/js/jquery-1.10.2.js"></script>
     <!-- Bootstrap Js -->
-    <script src="target-free-admin-template/assets/js/bootstrap.min.js"></script>
-
-    <script src="target-free-admin-template/assets/materialize/js/materialize.min.js"></script>
-
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/materialize/js/materialize.min.js"></script>
     <!-- Metis Menu Js -->
-    <script src="target-free-admin-template/assets/js/jquery.metisMenu.js"></script>
+    <script src="assets/js/jquery.metisMenu.js"></script>
     <!-- Morris Chart Js -->
-    <script src="target-free-admin-template/assets/js/morris/raphael-2.1.0.min.js"></script>
-    <script src="target-free-admin-template/assets/js/morris/morris.js"></script>
-
-
-    <script src="target-free-admin-template/assets/js/easypiechart.js"></script>
-    <script src="target-free-admin-template/assets/js/easypiechart-data.js"></script>
-
-    <script src="target-free-admin-template/assets/js/Lightweight-Chart/jquery.chart.js"></script>
-
+    <script src="assets/js/morris/raphael-2.1.0.min.js"></script>
+    <script src="assets/js/morris/morris.js"></script>
+    <script src="assets/js/easypiechart.js"></script>
+    <script src="assets/js/easypiechart-data.js"></script>
+    <script src="assets/js/Lightweight-Chart/jquery.chart.js"></script>
     <!-- Custom Js -->
-    <script src="target-free-admin-template/assets/js/custom-scripts.js"></script>
-
-
+    <script src="assets/js/custom-scripts.js"></script>
 </body>
 
 </html>
