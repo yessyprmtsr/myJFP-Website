@@ -227,9 +227,13 @@
         <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
-
                     <li>
-                        <a href="form.html" class="active-menu waves-effect waves-dark"><i class="fa fa-edit"></i> User
+                        <a href="index.php" class="waves-effect waves-dark"><i class="fa fa-dashboard"></i>
+                            Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="form_output.php" class="active-menu waves-effect waves-dark"><i class="fa fa-edit"></i>
+                            User
                             Management Form
                         </a>
                     </li>
@@ -301,7 +305,8 @@
                                                 <input class="form-check-input" type="radio" id="inlineRadio2"
                                                     value="Admin" name="type">
                                                 <label class="form-check-label" for="inlineRadio2">Admin</label>
-                                                <button name='submit' type="submit" class="btn btn-primary">submit</button>
+                                                <button name='submit' type="submit"
+                                                    class="btn btn-primary">submit</button>
                                             </div>
                                         </div>
                                     </div>

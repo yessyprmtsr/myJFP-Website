@@ -54,11 +54,11 @@
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
                     <li>
-                        <a href="index.html" class="waves-effect waves-dark"><i class="fa fa-dashboard"></i>
+                        <a href="index.php" class="waves-effect waves-dark"><i class="fa fa-dashboard"></i>
                             Dashboard</a>
                     </li>
                     <li>
-                        <a href="form.html" class="active-menu waves-effect waves-dark"><i class="fa fa-edit"></i>
+                        <a href="form_output.php" class="active-menu waves-effect waves-dark"><i class="fa fa-edit"></i>
                             Transaction </a>
                     </li>
                 </ul>
