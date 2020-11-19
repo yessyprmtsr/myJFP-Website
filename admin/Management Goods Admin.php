@@ -81,92 +81,90 @@
                 </ol>
 
             </div>
+
+
             <div id="page-inner">
-                <div class="row p-5">
-                    <div class="input-field col-sm-12">
-                        <label for="idbarang">ID Barang</label>
-                        <input id="idbarang" type="text" class="form-control" name="idbarang">
-
-                    </div>
-                </div>
                 <div class="row">
-                    <div class="input-field col-sm-12">
-                        <label for="sendername">Sender Name</label>
-                        <input id="sendername" type="text" class="form-control" name="sendername">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-action">
+                                Transaction
+                            </div>
+                            <div class="card-content">
+                                <form class="" action="Transaction Goods.php" method="post">
+                                    <div class="row p-5">
+                                        <div class="input-field col-sm-12">
+                                            <label for="idbarang">ID Barang</label>
+                                            <input id="idbarang" type="text" class="form-control" name="idbarang">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col-sm-12">
+                                            <label for="sendername">Sender Name</label>
+                                            <input id="sendername" type="text" class="form-control" name="sendername">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col-sm-12">
+                                            <label for="recepientname">Recepient Name</label>
+                                            <input id="recepientname" type="text" class="form-control"
+                                                name="recepientname">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col-sm-12">
+                                            <label for="namabarang">Nama Barang</label>
+                                            <input id="namabarang" type="text" class="form-control" name="namabarang">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col-sm-12">
+                                            <label for="exampleFormControlSelect1">Jenis Barang</label>
+                                            <br>
+                                            <br>
+                                            <select name="jenisbarang" class="form-control"
+                                                id="exampleFormControlSelect1">
+                                                <option value="Electronics">Electronics</option>
+                                                <option value="Otomotif">Otomotif</option>
+                                                <option value="Fashion">Fashion</option>
+                                                <option value="Groceries">Groceries</option>
+                                                <option value="Home">Home</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col-sm-12">
+                                            <label for="beratbarang">Berat Barang</label>
+                                            <input id="beratbarang" type="text" class="form-control" name="beratbarang">
+                                            <div class="input-field col-lg-6">
+                                                <button name="save" type="submit" style="margin-left: 275px"
+                                                    class="btn btn-outline-primary">save</button>
+                                            </div>
 
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col-sm-12">
-                        <label for="recepientname">Recepient Name</label>
-                        <input id="recepientname" type="text" class="form-control" name="recepientname">
-
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col-sm-12">
-                        <label for="namabarang">Nama Barang</label>
-                        <input id="namabarang" type="text" class="form-control" name="namabarang">
-
-
-
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col-sm-12">
-                        <label for="exampleFormControlSelect1">Jenis Barang</label>
-                        <br>
-                        <br>
-                        <select name="jenisbarang" class="form-control" id="exampleFormControlSelect1">
-                            <option value="Electronics">Electronics</option>
-                            <option value="Otomotif">Otomotif</option>
-                            <option value="Fashion">Fashion</option>
-                            <option value="Groceries">Groceries</option>
-                            <option value="Home">Home</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col-sm-12">
-                        <label for="beratbarang">Berat Barang</label>
-                        <input id="beratbarang" type="text" class="form-control" name="beratbarang">
-                        <div class="input-field col-lg-6">
-                            <input type="submit" value="Save" style="margin-left: 275px"
-                                class="btn btn-outline-primary">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
-
-                        </form>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
-
-
     <script src="assets/js/jquery-1.10.2.js"></script>
-
     <!-- Bootstrap Js -->
     <script src="assets/js/bootstrap.min.js"></script>
-
     <script src="assets/materialize/js/materialize.min.js"></script>
-
     <!-- Metis Menu Js -->
     <script src="assets/js/jquery.metisMenu.js"></script>
     <!-- Morris Chart Js -->
     <script src="assets/js/morris/raphael-2.1.0.min.js"></script>
     <script src="assets/js/morris/morris.js"></script>
-
-
     <script src="assets/js/easypiechart.js"></script>
     <script src="assets/js/easypiechart-data.js"></script>
-
     <script src="assets/js/Lightweight-Chart/jquery.chart.js"></script>
-
     <!-- Custom Js -->
     <script src="assets/js/custom-scripts.js"></script>
-
-
 </body>
 
 </html>

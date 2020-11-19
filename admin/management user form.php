@@ -19,6 +19,7 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" href="assets/js/Lightweight-Chart/cssCharts.css">
 </head>
+
 <body>
     <div id="wrapper">
         <nav class="navbar navbar-default top-navbar" role="navigation">
@@ -226,16 +227,17 @@
         <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
-                  
+
                     <li>
-                        <a href="form.html" class="active-menu waves-effect waves-dark"><i class="fa fa-edit"></i> User Management Form
+                        <a href="form.html" class="active-menu waves-effect waves-dark"><i class="fa fa-edit"></i> User
+                            Management Form
                         </a>
                     </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                   
+                </ul>
+                </li>
+                </ul>
+                </li>
+
                 </ul>
             </div>
 
@@ -260,7 +262,7 @@
                                 User Management Form
                             </div>
                             <div class="card-content">
-                                <form class="col s12" action="ManajemenUser_Output.php" method="post">
+                                <form class="col s12" action="form_output.php" method="post">
                                     <div class="row">
                                         <div class="input-field col s6">
                                             <input id="first_name" type="text" class="validate" name="first_name">
@@ -299,7 +301,7 @@
                                                 <input class="form-check-input" type="radio" id="inlineRadio2"
                                                     value="Admin" name="type">
                                                 <label class="form-check-label" for="inlineRadio2">Admin</label>
-                                                <a href="form.php" class="btn btn-primary">SUBMIT</a>
+                                                <button name='submit' type="submit" class="btn btn-primary">submit</button>
                                             </div>
                                         </div>
                                     </div>
@@ -341,4 +343,5 @@
     <!-- Custom Js -->
     <script src="assets/js/custom-scripts.js"></script>
 </body>
+
 </html>
