@@ -1,22 +1,13 @@
-<?php 
+<?php
+// include database connection file
+include_once("connection.php");
 
-$servername = "localhost:3307";
-$username = "root";
-$password = "";
-$dbname = "customer";
+// Get id from URL to delete that user
+$id = $_GET['id'];
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
+// Delete user row from table based on given id
+$result = mysqli_query($mysqli, "DELETE FROM booking WHERE id=$id");
 
-
-if (isset($_GET['del'])) {
-	$id = $_GET['del'];
-	mysqli_query($conn, "DELETE FROM booking WHERE id=$id");
-	$_SESSION['message'] = "Event Deleted Successfully!"; 
-	header('location: index.php');
-}
+// After delete redirect to Home, so that latest user list will be displayed.
+header("Location:index.php");
 ?>

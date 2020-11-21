@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>myJFP-About</title>
+  <!-- <link rel="stylesheet" href="style.css"> -->
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<style>
+  .max-width {
+    max-width: 1300px;
+    padding: 0 80px;
+    margin: auto;
+  }
+
+  .navbar {
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+    padding: 15px 0;
+    font-family: "Ubuntu", sans-serif;
+    transition: all 0.3s ease;
+  }
+
+  .navbar.sticky {
+    padding: 15px 0;
+    background: crimson;
+  }
+
+  .navbar .max-width {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .navbar .logo a {
+    color: rgb(23, 7, 167);
+    font-size: 35px;
+    font-weight: 600;
+  }
+
+  .navbar .logo a span {
+    color: crimson;
+    transition: all 0.3s ease;
+  }
+
+  .navbar.sticky .logo a span {
+    color: rgb(23, 7, 167);
+  }
+
+  .navbar .menu li {
+    list-style: none;
+    display: inline-block;
+  }
+
+  .navbar .nav_right li {
+  list-style: none;
+  display: inline-block;
+}
+
+  .navbar .menu li a {
+    color: rgb(10, 9, 9);
+    font-size: 18px;
+    font-weight: 500;
+    margin-left: 25px;
+    transition: color 0.3s ease;
+  }
+
+  .navbar .nav_right li a {
+  color: rgb(10, 9, 9);
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+  .navbar .menu li a:hover {
+    color: crimson;
+  }
+
+  .navbar .nav_rightli a:hover {
+    color: crimson;
+  }
+
+  .navbar.sticky .nav_right li a:hover {
+    color: #fff;
+  }
+
+  .navbar.sticky .nav_right li a:hover {
+    color: #fff;
+  }
+
+  .navbar .nav_right {
+    display: flex;
+    padding-left: 10%;
+  }
+
+  .navbar .nav_right>ul {
+    display: flex;
+    align-content: center;
+
+  }
+
+  .navbar .nav_right>ul li.nr_li {
+    margin-left: 1%;
+    cursor: pointer;
+    color: rgb(23, 7, 167);
+    font-size: 20px;
+    position: relative;
+  }
+
+  .navbar .nav_right>ul li.nr_li:hover {
+    color: #fff;
+  }
+
+  .navbar .nav_right>ul li img {
+    width: 45px;
+    vertical-align: middle;
+  }
+
+  .navbar .dd_menu {
+    position: absolute;
+    top: 47px;
+    right: -25;
+    display: flex;
+    background: #fff;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
+    border-radius: 15;
+    display: none;
+  }
+
+  .navbar .dd_menu .dd_left {
+    background: crimson;
+    padding: 15px 20px;
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+  }
+
+  .navbar .dd_menu .dd_left li {
+    color: #fff;
+  }
+
+  .navbar .dd_menu .dd_right {
+    padding: 15px 20px;
+  }
+
+  .navbar .dd_menu li {
+    margin-bottom: 10px;
+    color: #868686;
+  }
+
+  .navbar .dd_menu:before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    right: 30px;
+    border: 10px solid;
+    border-color: transparent transparent #fff transparent;
+  }
+
+  .navbar .nav_right ul li.li_main.active .dd_menu {
+    display: flex;
+  }
+
+  /* home section  */
+  .home {
+    display: flex;
+    background: url("images/banner.jpg") no-repeat center;
+    height: 50vh;
+    color: rgb(23, 7, 167);
+    min-height: 500px;
+    font-family: "Ubuntu", sans-serif;
+  }
+
+  .home .max-width {
+    margin: auto 0 auto 40px;
+  }
+
+  .home .home-content .text-1 {
+    font-size: 27px;
+  }
+
+  .home .home-content .text-2 {
+    font-size: 50px;
+    font-weight: 600;
+    margin-left: -3px;
+  }
+
+  .home .home-content .text-3 {
+    font-size: 35px;
+    margin: 5px 0;
+  }
+
+  .home .home-content .text-3 span {
+    color: crimson;
+    font-weight: 500;
+  }
+
+  .home .home-content a {
+    display: inline-block;
+    background: crimson;
+    color: #fff;
+    font-size: 25px;
+    padding: 12px 36px;
+    margin-top: 20px;
+    border-radius: 6px;
+    border: 2px solid crimson;
+    transition: all 0.3s ease;
+  }
+
+  .home .home-content a:hover {
+    color: crimson;
+    background: none;
+  }
+
+  .btn {
+    background: -webkit-linear-gradient(left, #743cdd, #e91a1a);
+    text-align: center;
+    font-size: 20px;
+    font-weight: 400;
+    color: #fff;
+    padding: 15px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-family: "Ubuntu", sans-serif;
+  }
+
+  /* footer section */
+  .footer {
+    width: 100%;
+    padding: 15px 0;
+    font-family: "Ubuntu", sans-serif;
+  }
+
+  .footer {
+    padding: 15px 0;
+    background: crimson;
+  }
+
+  .footer .max-width {
+    display: flex;
+    align-items: right;
+    justify-content: space-between;
+  }
+
+  .footer .ftmenu li {
+    list-style: none;
+    display: inline-block;
+  }
+
+  .footer .ftmenu li a {
+    color: rgb(10, 9, 9);
+    font-size: 18px;
+    font-weight: 500;
+    margin-left: 25px;
+    transition: color 0.3s ease;
+  }
+
+  .footer .ftmenu li a:hover {
+    color: crimson;
+  }
+
+  .footer .ftmenu li a:hover {
+    color: #fff;
+  }
+
+  .footer .span {
+    color: rgb(10, 9, 9);
+    font-size: 14px;
+    font-weight: 400;
+    margin-left: 25px;
+    /* transition: color 0.3s ease; */
+  }
+</style>
+
+<body>
+  <nav class="navbar">
+    <div class="max-width">
+      <div class="logo"><a href="#">my<span>JFP</span></a></div>
+      <ul class="menu" style="display: inline-block;">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="booking.html">Booking</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="history.html">Booking History</a></li>
+
+      </ul>
+      <div class="nav_right">
+        <ul>
+
+          <li class="nr_li li_main"><img src="images/profile.png" alt="profile_image">
+            <div class="dd_menu">
+              <div class="dd_left">
+                <ul>
+                  <li><i class="far fa-user-circle"></i></li>
+                  <li><i class="fas fa-cart-plus"></i></li>
+                  <li><i class="fas fa-sign-out-alt"></i></li>
+                </ul>
+              </div>
+              <div class="dd_right">
+                <ul>
+                  <li>Profile</li>
+                  <li>Bookings</li>
+                  <li>SignOut</li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li class="nr_li">
+            <i class="fas fa-envelope-open-text"></i>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  </div>
+  </nav>
+
+  <!-- home section -->
+  <section class="home" id="home">
+    <div class="max-width">
+      <div class="home-content">
+        <div class="text-1">Welcome to myJFP</div>
+        <div class="text-2">Your Satisfaction</div>
+        <div class="text-3">Is our<span> Priority</span></div>
+      </div>
+    </div>
+  </section>
+  <div class="container">
+    <h1 style="margin-top: 20px;text-align:center">Booking History</h1>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Booking ID</th>
+          <th scope="col">Sender Name</th>
+          <th scope="col">Product Name</th>
+          <th scope="col">Product Weight</th>
+          <th scope="col">Total Bayar</th>
+          <th scope="col">Status</th>
+          <th scope="col">Aksi</th>
+        </tr>
+
+        <tr>
+          <td><?= $data["id"]; ?></td>
+          <td><?= $data["nama_pengirim"]; ?></td>
+          <td><?= $data["nama_barang"]; ?></td>
+          <td><?= $data["berat_barang"]; ?> Kg</td>
+          <td><?= $data["total_bayar"]; ?></td>
+          <td><?= $data["status"]; ?></td>
+          <td>
+            <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal"><i
+                class="fa fa-eye"></i></a>
+            <a href="ubah.php?id=<?= $data["id"]; ?>" class="btn btn-danger btn-sm"><i class="fa fa-pen"></i></a>
+            <a href="hapus.php?id=<?= $data["id"]; ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+          </td>
+        </tr>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Detail Booking</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">Nama Pengirim: </label>
+                  <?= $data["nama_pengirim"]; ?>
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="col-form-label">Nomor Telefon Pengirim:</label>
+                  <?= $data["nomor_telefon_pengirim"]; ?>
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="col-form-label">Alamat Pengirim:</label>
+                  <?= $data["alamat_pengirim"]; ?>
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="col-form-label">Nama Barang:</label>
+                  <?= $data["nama_barang"]; ?>
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="col-form-label">Jenis Barang:</label>
+                  <?= $data["jenis_barang"]; ?>
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="col-form-label">Berat Barang:</label>
+                  <?= $data["berat_barang"]; ?>
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="col-form-label">Jenis Service:</label>
+                  <?= $data["jenis_service"]; ?>
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="col-form-label">Tanggal Pesan:</label>
+                  <?= $data["tanggal_pesan"]; ?>
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="col-form-label">Waktu Pesan:</label>
+                  <?= $data["waktu_pesan"]; ?>
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="col-form-label">Metode Pembayaran:</label>
+                  <?= $data["metode_pembayaran"]; ?>
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="col-form-label">Bukti Pembayaran:</label>
+                  <br>
+                  <img src="assets/images/<?= $data["gambar"]; ?>" width="100" height="150">
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="col-form-label">Nama Penerima:</label>
+                  <?= $data["nama_penerima"]; ?>
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="col-form-label">Nomor Telefon Penerima:</label>
+                  <?= $data["nomor_telefon_penerima"]; ?>
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="col-form-label">Alamat Penerima:</label>
+                  <?= $data["alamat_penerima"]; ?>
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="col-form-label">Total Bayar:</label>
+                  <?= $data["total_bayar"]; ?>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+  </div>
+  <?php
+     endforeach;
+     ?>
+  </tbody>
+  <!-- modal edit -->
+
+  </table>
+  <script src="assetscustomer/js/vendor/modernizr-3.5.0.min.js"></script>
+  <script src="assetscustomer/js/vendor/jquery-1.12.4.min.js"></script>
+  <script src="assetscustomer/js/popper.min.js"></script>
+  <script src="assetscustomer/js/bootstrap.min.js"></script>
+  <script src="assetscustomer/js/owl.carousel.min.js"></script>
+  <script src="assetscustomer/js/isotope.pkgd.min.js"></script>
+  <script src="assetscustomer/js/ajax-form.js"></script>
+  <script src="assetscustomer/js/waypoints.min.js"></script>
+  <script src="assetscustomer/js/jquery.counterup.min.js"></script>
+  <script src="assetscustomer/js/imagesloaded.pkgd.min.js"></script>
+  <script src="assetscustomer/js/scrollIt.js"></script>
+  <script src="assetscustomer/js/jquery.scrollUp.min.js"></script>
+  <script src="assetscustomer/js/wow.min.js"></script>
+  <script src="assetscustomer/js/nice-select.min.js"></script>
+  <script src="assetscustomer/js/jquery.slicknav.min.js"></script>
+  <script src="assetscustomer/js/jquery.magnific-popup.min.js"></script>
+  <script src="assetscustomer/js/plugins.js"></script>
+  <script src="assetscustomer/js/gijgo.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script>
+    $('#exampleModal').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget) // Button that triggered the modal
+      var recipient = button.data('whatever') // Extract info from data-* attributes
+      // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+      // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+      var modal = $(this)
+      modal.find('.modal-title').text('Detail Booking')
+      modal.find('.modal-body input').val(recipient)
+    })
+  </script>
+  </div>
+  </div>
+
+  <footer>
+    <div class="footer">
+      <div class="max-width">
+
+        <ul class="ftmenu">
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">myJFP.com</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">booking</a></li>
+          <li><a href="#">About</a></li>
+          <!-- <li><a href="#"></a></li> -->
+        </ul>
+        <span class="far fa-copyright"> 2020 all rights reserved.</span>
+      </div>
+    </div>
+
+
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    var li_main = document.querySelector(".li_main");
+    li_main.addEventListener("click", function () {
+      this.classList.toggle("active");
+    })
+  </script>
+
+</body>
+
+</html>

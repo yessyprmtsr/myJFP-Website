@@ -13,6 +13,14 @@ if(!isset($_SESSION['username'])){
 
 ?>
 
+<?php
+$servername = "localhost:3307";
+$username = "root";
+$password = "";
+$dbname = "customer";
+$connection = mysqli_connect("localhost:3307", "root", "", "customer");
+?>
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -490,20 +498,22 @@ if(!isset($_SESSION['username'])){
                                                 $result = $conn->query($sql);
 
                                                 if ($result->num_rows > 0) {
-                                                   
+                                                    $i = 1;
                                                     while($row = $result->fetch_assoc()) {
                                                         echo "<tr>
+                                                        <td>" .$row['id']. "</td>
                                                         <td>" .$row['resi_number']. "</td>
                                                         <td>".$row['product_id']."</td>
                                                         <td>".$row['user_id']."</td>
                                                         <td>".$row['status']."</td>
                                                         <td>".$row['current_location']."</td>
-                                                        <td><a href='edit.php?id=$row[id]'>Edit</a> | <a href='delete.php?id=$row[id]'>Delete</a></td></tr>";  
+                                                        <td><a href='edit.php?id= .$row[id]. '>Edit</a> | <a href='delete.php?id= .$row[id]. '>Delete</a></td></tr>";  
                                                     }
                                                 }else {
                                                 echo "No result found";
                                                 }
                                                 $conn->close();
+                                                $i++;
                                                 ?>
                                             </tbody>
                                         </table>
