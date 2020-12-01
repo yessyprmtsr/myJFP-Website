@@ -15,4 +15,8 @@ class HomeController extends Controller
     {
         return view('customer.about');
     }
+    public function login()
+    {
+        return view('customer.login');
+    }
 }

@@ -12,7 +12,6 @@
                 <input class="form-control mr-sm-2" type="text" placeholder="Search">
             </ul>
             <ul class="menu2">
-                <li><a href="login.html">LogIn</a></li> <span>|</span>
-                <li><a href="login.html">SignUp</a></li>
+            <li><a href="{{ route('login')}}">Login</a></li>
             </ul>
         </div>
