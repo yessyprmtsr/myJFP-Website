@@ -253,7 +253,7 @@ $connection = mysqli_connect("localhost:3307", "root", "", "customer");
                 <ul class="nav" id="main-menu">
 
                     <li>
-                        <a class="active-menu waves-effect waves-dark" href="index.html"><i class="fa fa-dashboard"></i>
+                        <a class="active-menu waves-effect waves-dark" href="index.php"><i class="fa fa-dashboard"></i>
                             Dashboard</a>
                     </li>
                     <li>
@@ -409,7 +409,7 @@ $connection = mysqli_connect("localhost:3307", "root", "", "customer");
 			 <div class="col-lg-12">
 			 <div class="card">
               <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-4">
                     <div class="card">
                         <div class="card-action">
                           Sending Details
@@ -466,7 +466,7 @@ $connection = mysqli_connect("localhost:3307", "root", "", "customer");
         </div>
         </div>
         </div>
-    <div class="col-lg-6">
+    <div class="col-lg-8">
     <div class="card">
                         <div class="card-action">
                           Details Output
@@ -481,6 +481,7 @@ $connection = mysqli_connect("localhost:3307", "root", "", "customer");
                                                         <th>User ID::</th>
                                                         <th>Sending Status:</th>
                                                         <th>Current Location:</th>
+                                                        <th>Action:</th>
                                                     </tr>
 
                                                 </thead>
@@ -499,16 +500,21 @@ $connection = mysqli_connect("localhost:3307", "root", "", "customer");
 
                                                 if ($result->num_rows > 0) {
                                                     $i = 1;
-                                                    while($row = $result->fetch_assoc()) {
-                                                        echo "<tr>
-                                                        <td>" .$row['id']. "</td>
-                                                        <td>" .$row['resi_number']. "</td>
-                                                        <td>".$row['product_id']."</td>
-                                                        <td>".$row['user_id']."</td>
-                                                        <td>".$row['status']."</td>
-                                                        <td>".$row['current_location']."</td>
-                                                        <td><a href='edit.php?id= .$row[id]. '>Edit</a> | <a href='delete.php?id= .$row[id]. '>Delete</a></td></tr>";  
-                                                    }
+                                                    while($row = $result->fetch_assoc()) {?>
+                                                        <tr>
+                                                        <td><?php echo $row['resi_number']; ?></td>
+                                                        <td><?php echo $row['product_id']; ?></td>
+                                                        <td><?php echo $row['user_id']; ?></td>
+                                                        <td><?php echo $row['status']; ?></td>
+                                                        <td><?php echo $row['current_location']; ?></td>
+                                                        <td>
+                                                        <div class="btn-group btn-group-toggle">
+                                                        <a class="btn btn-info btn-xs" href="edit.php?edit=<?php echo $row['id']; ?> " ><i class="fa fa-pencil"></i></a>
+                                                        <a class="btn btn-danger btn-xs" href="delete.php?id=<?php echo $row['id']; ?> " ><i class="fa fa-trash-o"></i></a>
+                                                        </div>
+                                                        </td>
+                                                        </tr>  
+                                                   <?php } 
                                                 }else {
                                                 echo "No result found";
                                                 }
