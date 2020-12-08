@@ -3,6 +3,7 @@
 use App\Http\Controllers\Customer\HomeController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Customer\BookingController;
+use App\Http\Controllers\Admin\TransactionController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -31,6 +32,9 @@ Route::resource('booking',BookingController::class);
 
 // Route untuk Adam
 Route::get('/admin', [AdminController::class, 'index'])->name('layout');
+Route::get('/admin/transaction', [TransactionController::class, 'index'])->name('adminindex');
+Route::get('/admin/transaction/update', [TransactionController::class, 'ngeupdate'])->name('ngeupdate');
+
 
 
 // Route untk daniel

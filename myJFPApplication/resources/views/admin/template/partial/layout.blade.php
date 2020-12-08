@@ -4,14 +4,13 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Target Material Design Bootstrap Admin Template</title> 
+    <title>Home</title> 
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="{{ asset ('/adminassets/materialize/css/materialize.min.css') }}" media="screen,projection" />
     <!-- Bootstrap Styles-->
-    {{ asset ('/adminassets/js/Lightweight-Chart/cssCharts.css') }}
+    
     <link href="{{ asset ('/adminassets/css/bootstrap.css') }}" rel="stylesheet" />
     <!-- FontAwesome Styles-->
-    {{ asset ('/adminassets/js/morris/morris-0.4.3.min.css') }}
     <link href="{{ asset ('/adminassets/css/font-awesome.css') }}" rel="stylesheet" />
     <!-- Morris Chart Styles-->
     <link href="{{ asset ('/adminassets/js/morris/morris-0.4.3.min.css') }}" rel="stylesheet" />
@@ -38,18 +37,14 @@
             </div>
 
             <ul class="nav navbar-top-links navbar-right"> 
-				  <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown1"><i class="fa fa-user fa-fw"></i> <b>John Doe</b> <i class="material-icons right">arrow_drop_down</i></a></li>
+				  <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown1"><i class="fa fa-user fa-fw"></i> <b>Admin</b> <i class="material-icons right">arrow_drop_down</i></a></li>
             </ul>
         </nav>
 		<!-- Dropdown Structure -->
-<ul id="dropdown1" class="dropdown-content">
-<li><a href="#"><i class="fa fa-user fa-fw"></i> My Profile</a>
-</li>
-<li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-</li> 
-<li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-</li>
-</ul>
+            <ul id="dropdown1" class="dropdown-content">
+            <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+            </li>
+            </ul>
        
         <!-- Navbar -->
         @include('admin.template.partial.navbar')

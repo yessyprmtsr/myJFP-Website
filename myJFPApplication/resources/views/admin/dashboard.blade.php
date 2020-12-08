@@ -19,10 +19,10 @@
                   </div>
                   <div class="card-stacked red">
                   <div class="card-content">
-                  <h3>84,198</h3> 
+                  <h3>Manage</h3> 
                   </div>
                   <div class="card-action">
-                  <strong>REVENUE</strong>
+                  <strong>Courier Data</strong>
                   </div>
                   </div>
                   </div>
@@ -36,10 +36,10 @@
                   </div>
                   <div class="card-stacked orange">
                   <div class="card-content">
-                  <h3>36,540</h3> 
+                  <h3>Manage</h3> 
                   </div>
                   <div class="card-action">
-                  <strong>SALES</strong>
+                  <strong>Customer Data</strong>
                   </div>
                   </div>
                   </div> 
@@ -52,10 +52,10 @@
                   </div>
                   <div class="card-stacked blue">
                   <div class="card-content">
-                  <h3>24,225</h3> 
+                  <h3>Manage</h3> 
                   </div>
                   <div class="card-action">
-                  <strong>PRODUCTS</strong>
+                  <strong>Transaction Data</strong>
                   </div>
                   </div>
                   </div> 
@@ -69,10 +69,10 @@
                   </div>
                   <div class="card-stacked green">
                   <div class="card-content">
-                  <h3>88,658</h3> 
+                  <h3>Manage</h3> 
                   </div>
                   <div class="card-action">
-                  <strong>VISITS</strong>
+                  <strong>Tracking</strong>
                   </div>
                   </div>
                   </div> 
