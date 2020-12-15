@@ -14,7 +14,12 @@ class TrackingController extends Controller
      */
     public function index()
     {
-        //
+        return view('\admin\tracking\index');
+    }
+
+    public function ngeupdate()
+    {
+        return view('\admin\tracking\update');
     }
 
     /**

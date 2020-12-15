@@ -4,6 +4,7 @@ use App\Http\Controllers\Customer\HomeController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Customer\BookingController;
 use App\Http\Controllers\Admin\TransactionController;
+use App\Http\Controllers\Admin\TrackingController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -32,9 +33,10 @@ Route::resource('booking',BookingController::class);
 
 // Route untuk Adam
 Route::get('/admin', [AdminController::class, 'index'])->name('layout');
-Route::get('/admin/transaction', [TransactionController::class, 'index'])->name('adminindex');
+Route::get('/admin/transaction', [TransactionController::class, 'index'])->name('transactionindex');
 Route::get('/admin/transaction/update', [TransactionController::class, 'ngeupdate'])->name('ngeupdate');
-
+Route::get('/admin/tracking', [TrackingController::class, 'index'])->name('trackingindex');
+Route::get('/admin/tracking/update', [TrackingController::class, 'ngeupdate'])->name('trackingupdate');
 
 
 // Route untk daniel
