@@ -43,8 +43,8 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    public function transaction()
+    public function transactions()
     {
-        return $this->hasMany(Transaction::class);
+        return $this->hasMany(Transactions::class);
     }
 }
