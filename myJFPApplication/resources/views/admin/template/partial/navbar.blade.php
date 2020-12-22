@@ -13,7 +13,7 @@
                 <a href="\admin\transaction" class="waves-effect waves-dark"><i class="fa fa-qrcode"></i> Management Transaction</a>
             </li>      
             <li>
-                <a href="table.html" class="waves-effect waves-dark"><i class="fa fa-table"></i> Management Tracking</a>
+                <a href="\admin\tracking" class="waves-effect waves-dark"><i class="fa fa-table"></i> Management Tracking</a>
             </li>
             <li>
                 <a href="ManajemenUser_Form.php" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Management Courier </a>
