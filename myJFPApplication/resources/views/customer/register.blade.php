@@ -7,28 +7,32 @@
     </div>
     <div class="form-container">
         <div class="slide-controls">
-            <input type="radio" name="slider" id="login" checked>
-            {{-- <input type="radio" name="slider" id="signup" checked> --}}
-            <label for="login" class="slide login">LogIn</label>
-            <a for="signup" href="{{ route('register')}}" class="slide signup">SignUp</a>
+            {{-- {{-- <input type="radio" name="slider" id="login" checked> --}}
+            <input type="radio" name="slider" id="signup" checked>
+            <a for="login" href="{{ route('login')}}" class="slide login">LogIn</a>
+            <label for="signup" class="slide signup">SignUp</label>
             <div class="slide-tab">
 
             </div>
         </div>
         <div class="form-inner">
-            <form action="{{ route('login')}}" method="POST" class="login">
+            <form action="{{ route('register')}}" method="POST"  class="signup">
                 @csrf
+                <div class="field">
+                    <input type="name" name="name" placeholder="name" required>
+                </div>
                 <div class="field">
                     <input type="email" name="email" placeholder="email address" required>
                 </div>
                 <div class="field">
                     <input type="password" name="password" placeholder="password" required>
                 </div>
-                <div class="pass-link"><a href="#">Forget password?</a></div>
                 <div class="field">
-                    <input type="submit" value="LogIn">
+                    <input type="password" name="password_confirmation" placeholder="confirm password" required>
                 </div>
-                <div class="signup-link">Not a Member yet? <a href="{{ route('register')}}">SignUp now</a></div>
+                <div class="field">
+                    <input type="submit" value="SignUp">
+                </div>
             </form>
         </div>
     </div>
