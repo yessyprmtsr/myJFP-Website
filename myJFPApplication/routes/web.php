@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Customer\BookingController;
 use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\Admin\TrackingController;
+use App\Http\Controllers\Admin\CourierController;
 use App\Http\Controllers\Courier\DeliveryController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -44,6 +45,10 @@ Route::get('/admin/transaction', [TransactionController::class, 'index'])->name(
 Route::get('/admin/transaction/update', [TransactionController::class, 'ngeupdate'])->name('ngeupdate');
 Route::get('/admin/tracking', [TrackingController::class, 'index'])->name('trackingindex');
 Route::get('/admin/tracking/update', [TrackingController::class, 'ngeupdate'])->name('trackingupdate');
+Route::get('/admin/tracking/create', [TrackingController::class, 'create'])->name('trackingcreate');
+Route::get('/admin/mancourier', [CourierController::class, 'index'])->name('courierindex');
+Route::get('/admin/mancourier/update', [CourierController::class, 'ngeupdate'])->name('couriercreate');
+Route::get('/admin/mancourier/create', [CourierController::class, 'create'])->name('couriercreate');
 
 
 // Route untk daniel

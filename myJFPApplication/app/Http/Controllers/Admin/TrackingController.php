@@ -29,7 +29,7 @@ class TrackingController extends Controller
      */
     public function create()
     {
-        //
+        return view('\admin\tracking\create');
     }
 
     /**

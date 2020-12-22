@@ -14,7 +14,11 @@ class CourierController extends Controller
      */
     public function index()
     {
-        //
+        return view('\admin\mancourier\index');
+    }
+    public function ngeupdate()
+    {
+        return view('\admin\mancourier\update');
     }
 
     /**
@@ -24,7 +28,7 @@ class CourierController extends Controller
      */
     public function create()
     {
-        //
+        return view('\admin\mancourier\create');
     }
 
     /**

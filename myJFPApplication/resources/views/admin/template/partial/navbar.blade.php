@@ -16,7 +16,7 @@
                 <a href="\admin\tracking" class="waves-effect waves-dark"><i class="fa fa-table"></i> Management Tracking</a>
             </li>
             <li>
-                <a href="ManajemenUser_Form.php" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Management Courier </a>
+                <a href="\admin\mancourier" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Management Courier </a>
             </li>
         </ul>
     </div>
