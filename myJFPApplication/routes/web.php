@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Customer\BookingController;
 use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\Admin\TrackingController;
+use App\Http\Controllers\Courier\DeliveryController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -29,6 +30,7 @@ Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/login', [HomeController::class, 'login'])->name('login');
 Route::get('/service', [HomeController::class, 'service'])->name('service');
 Route::resource('booking',BookingController::class);
+Route::resource('courier',DeliveryController::class);
 
 
 // Route untuk Adam
