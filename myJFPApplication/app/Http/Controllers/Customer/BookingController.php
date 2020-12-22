@@ -7,6 +7,7 @@ use App\Models\Booking;
 use App\Models\Transactions;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\User;
 
 class BookingController extends Controller
 {
@@ -17,7 +18,8 @@ class BookingController extends Controller
      */
     public function index()
     {
-        return view('customer.book');
+        $users = User::all();
+        return view('customer.book',compact('users'));
     }
     
     /**
@@ -87,6 +89,7 @@ class BookingController extends Controller
             $cover = $request->file('cover')->store('public/assets/covers');
          }
         DB::table('transactions')->insert([
+            'user_id' => $request->user_id,
             'sender_name' => $request->sender_name,
             'sender_phone_number' => $request->sender_phone_number,
             'good_name' => $request->good_name,

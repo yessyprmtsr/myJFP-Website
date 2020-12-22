@@ -15,13 +15,16 @@ class CreateSprintersTable extends Migration
     {
         Schema::create('sprinters', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('transaction_id');
+            $table->unsignedBigInteger('user_id');
             $table->string('name');
-            $table->string('status');
+            $table->string('gender');
+            $table->string('alamat');
+            $table->string('status_employee');
             $table->timestamps();
-            $table->foreign('transaction_id')->references('id')->on('transactions')
-                    ->onDelete('CASCADE')
-                    ->onUpdate('CASCADE');
+            $table->foreign('user_id')->references('id')->on('users')
+            ->onDelete('CASCADE')
+            ->onUpdate('CASCADE');
+   
         });
     }
 

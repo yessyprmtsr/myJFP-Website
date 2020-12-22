@@ -15,6 +15,7 @@ class CreateTransactionsTable extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('user_id');
             $table->string('sender_name');
             $table->string('sender_phone_number');
             $table->string('good_name');
@@ -31,6 +32,9 @@ class CreateTransactionsTable extends Migration
             $table->text('receiver_address');
             $table->integer('total');
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users')
+            ->onDelete('CASCADE')
+            ->onUpdate('CASCADE');
         });
     }
 

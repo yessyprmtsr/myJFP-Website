@@ -7,9 +7,15 @@
         <h1 style="text-align: center;margin-top:10px">Booking Data</h1>
         <div class="row" style="margin-top:30px">
             <div class="col-lg-6">
+               
                 <h2>Data Pengirim</h2>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Nama Pengirim</label>
+    
+                    {{-- @foreach ($users as $item)
+                    <option value="{{$item->auth()->id}}">{{$item->id}}</option>
+                    @endforeach --}}
+                    <input  type="hidden" name="user_id" value="{{ auth()->user()->id}}" class="form-control" id="exampleFormControlInput1">
                     <input  type="text" name="sender_name" class="form-control" id="exampleFormControlInput1">
                 </div>
                 <div class="form-group">
