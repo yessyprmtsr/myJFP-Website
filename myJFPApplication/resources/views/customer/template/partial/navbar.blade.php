@@ -6,27 +6,37 @@
             <li><a href="{{ route('about')}}">About</a></li>
             <li><a href="{{ route('service')}}">Services</a></li>
             <li><a href="{{ route('booking.index')}}">Booking</a></li>
-            
             </ul>
             <ul class="form">
                 <input class="form-control mr-sm-2" style="margin-left:50px" type="text" placeholder="Search">
             </ul>
+            @guest
             <ul class="menu2" style="margin-left:80px">
             <li><a class="btn btn-warning" style="color: white" href="{{ route('login')}}">Login</a></li>
+          </ul>
+            @else
+          <ul class="menu2"  style="margin-left:80px">
             <li>
                 <div class="dropdown">
-                    <a class="dropbtn">User Profile</a>
+                    <a class="dropbtn">{{ auth()->user()->name}}</a>
                     <i class="fa fa-caret-down"></i>
                     <div class="dropdown-content">
-                       <a href="#"> <i class="fa fa-user-circle"></i>   My Profile</a>
+                       <a href="#"> <i class="fa fa-user-circle"></i> My Profile</a>
                       <a href="#"><i class="fa fa-history"></i> History</a>
-                      <a href="#"><i class="fa fa-sign-out"></i>   Logout</a>
+                      <a href="{{ route('logout') }}"
+                      onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                      <i class="fa fa-sign-out fa-fw"></i>    {{ __('Logout') }}</a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
                     </div>
                   </div>
               </li>
             </ul>
-            
+      
         </div>
+        @endguest
         <style>
             /* Style The Dropdown Button */
             .dropbtn {
