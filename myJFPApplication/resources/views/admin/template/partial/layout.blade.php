@@ -37,13 +37,20 @@
             </div>
 
             <ul class="nav navbar-top-links navbar-right"> 
-				  <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown1"><i class="fa fa-user fa-fw"></i> <b>Admin</b> <i class="material-icons right">arrow_drop_down</i></a></li>
+				  <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown1"><i class="fa fa-user fa-fw"></i> <b>{{auth()->user()->name}}</b> <i class="material-icons right">arrow_drop_down</i></a></li>
             </ul>
         </nav>
 		<!-- Dropdown Structure -->
             <ul id="dropdown1" class="dropdown-content">
-            <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+            <li><a href="{{ route('logout') }}"
+                onclick="event.preventDefault();
+                              document.getElementById('logout-form').submit();">
+              <i class="fa fa-sign-out fa-fw"></i>    {{ __('Logout') }}</a>
+                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
             </li>
+               
             </ul>
        
         <!-- Navbar -->
