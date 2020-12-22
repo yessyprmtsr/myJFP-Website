@@ -24,7 +24,7 @@
                 <div class="field">
                     <input type="password" name="password" placeholder="password" required>
                 </div>
-                <div class="pass-link"><a href="#">Forget password?</a></div>
+                <div class="pass-link"><a href="{{ route('password.request') }}">Forget password?</a></div>
                 <div class="field">
                     <input type="submit" value="LogIn">
                 </div>
