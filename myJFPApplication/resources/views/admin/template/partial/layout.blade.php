@@ -72,6 +72,10 @@
     <!-- JS Scripts-->
     <!-- jQuery Js -->
     
+
+
+
+
     <script src="{{ asset ('/adminassets/js/jquery-1.10.2.js') }}"></script>
 	
     <!-- Bootstrap Js -->

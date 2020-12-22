@@ -7,29 +7,40 @@
                       Management Courier
                   </h1>									
     </div>
+    @if (session('status'))
+        <div class="alert alert-success">
+             {{ session('status') }}
+                </div>
+        @endif
       <div id="page-inner">
-        <a href="\admin\mancourier\create" class="btn btn-primary" >Add data</a> 
-        <br> 
+        <a href="{{ route('Courier.create')}}" class="btn btn-primary" >Add data</a> 
+        <br>
         <table class="table">
             <thead class="thead">
               <tr>
                 <th scope="col">No</th>
-                <th scope="col">ID Courier</th>
                 <th scope="col">Courier Name</th>
+                <th scope="col">Status</th>
                 <th scope="col" class="text-center">Action</th>
               </tr>
             </thead>
             <tbody>
+          @foreach ($sprinters as $kurir)
               <tr>
-                <th scope="row">1</th>
-                <td>123424901</td>
-                <td>Ganteng</td>
+                <th scope="row">{{ $loop->iteration}}</th>
+                <td>{{$kurir->name}}</td>
+                <td>{{$kurir->status_employee}}</td>
                 <td>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Detail</button>
-                    <a href="\admin\mancourier\update" class="btn btn-primary">Update</a>
-                    <a href="#" class="btn btn-danger">Delete</a>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-id="{{$kurir->id}}" data-target="#myModal">Detail</button>
+                    <a href="{{ route('Courier.edit', $kurir->id) }}" class="btn btn-primary">Update</a>
+                    <form action="{{ route('Courier.destroy',$kurir->id) }}" method="post" class="d-inline" >
+                      @method('DELETE')
+                      @csrf
+                      <button type="submit" class="btn btn-danger"onclick="return confirm('Are you sure?')" >Delete</a>
+                    </form>
                 </td>
               </tr>
+          @endforeach 
             </tbody>
           </table>
           
@@ -45,18 +56,15 @@
                 <div class="modal-body">
                     <h4>Courier Data</h4>
                     <br>
-                    <div class="form-group">
-                    <label for="exampleFormControlInput1">ID Tracking</label>
-                    <input type="text" name="namaPengirim" class="form-control" id="exampleFormControlInput1" disabled >
-                    </div>
-                    <div class="form-group">
-                    <label for="exampleFormControlInput1">ID Courrier</label>
-                    <input type="number" name="phonePengirim" class="form-control" id="exampleFormControlInput1" disabled>
-                    </div>
-                    <div class="form-group">
-                    <label for="exampleFormControlInput1">ID Transaction</label>
-                    <input type="text" name="namaBarang" class="form-control" id="exampleFormControlInput1" disabled>
-                    </div>  
+                    @if(isset($kurir->id))
+                    <table>
+                      <tr><td><strong>Name    :</strong></td><td>{{$kurir->name}}</td></tr>
+                      <tr><td><strong>Gender  :</strong></td><td>{{$kurir->gender}}</td></tr>
+                      <tr><td><strong>Address:</strong></td><td>{{$kurir->alamat}}</td></tr>
+                      <tr><td><strong>Employee Status :</strong></td><td>{{$kurir->status_employee}}</td></tr>
+              
+                      </table>
+                    @endif
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

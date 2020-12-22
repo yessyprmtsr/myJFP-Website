@@ -3,7 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Booking;
+use App\Models\Sprinter;
+use App\Models\Transactions;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Models\User;
 
 class TransactionController extends Controller
 {
@@ -14,7 +19,8 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        return view('\admin\transaction\index');
+        $transactions = auth()->user()->transactions;
+        return view('\admin\transaction\index', compact('transactions'));
         
     }
 

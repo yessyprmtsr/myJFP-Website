@@ -12,24 +12,26 @@
             <thead class="thead">
               <tr>
                 <th scope="col">No</th>
-                <th scope="col">ID Transaction</th>
                 <th scope="col">Customer Name</th>
-                <th scope="col">Status</th>
+                <th scope="col">Customer Phone</th>
+                <th scope="col">Service</th>
                 <th scope="col" class="text-center">Action</th>
               </tr>
             </thead>
             <tbody>
+              @foreach ($transactions as $item)
               <tr>
-                <th scope="row">1</th>
-                <td>1202180311</td>
-                <td>Adam Keren</td>
-                <td>OTW</td>
+                <th scope="row">{{ $loop->iteration}}</th>
+                <td>{{ $item->sender_name}}</td>
+                <td>{{ $item->sender_phone}}</td>
+                <td>{{ $item->service}}</td>
                 <td>
                   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Detail</button>
                     <a href="\admin\transaction\update" class="btn btn-primary">Update</a>
                     <a href="#" class="btn btn-danger">Delete</a>
                 </td>
               </tr>
+              @endforeach
             </tbody>
           </table>
           <div id="myModal" class="modal fade" role="dialog">

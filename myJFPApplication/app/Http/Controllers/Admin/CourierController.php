@@ -3,7 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Booking;
+use App\Models\Sprinter;
+use App\Models\Transactions;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Models\User;
 
 class CourierController extends Controller
 {
@@ -14,12 +19,10 @@ class CourierController extends Controller
      */
     public function index()
     {
-        return view('\admin\mancourier\index');
+        $sprinters = Sprinter::all();
+        return view('\admin\mancourier\index', compact('sprinters'));
     }
-    public function ngeupdate()
-    {
-        return view('\admin\mancourier\update');
-    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -39,7 +42,15 @@ class CourierController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        DB::table('sprinters')->insert([
+            'user_id' => $request->user_id,
+            'name' => $request->name,
+            'gender' => $request->gender,
+            'alamat' => $request->alamat,
+            'status_employee' => $request->status_employee
+        ]);
+        // alihkan halaman ke halaman index courier
+        return redirect('\admin\mancourier');
     }
 
     /**
@@ -48,9 +59,9 @@ class CourierController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Sprinter $sprinters)
     {
-        //
+        return view('Courier.show',compact('sprinters'));
     }
 
     /**
@@ -61,7 +72,8 @@ class CourierController extends Controller
      */
     public function edit($id)
     {
-        //
+        $kurir = Sprinter::find($id);
+        return view('\admin\mancourier\update', compact('kurir'));
     }
 
     /**
@@ -73,7 +85,8 @@ class CourierController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Sprinter::find($id)->update($request->all());
+        return redirect()->route('Courier.index')->with('status','Update Successfull');
     }
 
     /**
@@ -84,6 +97,7 @@ class CourierController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Sprinter::find($id)->delete();
+        return redirect()->route('Courier.index')->with('status','Delete Successfull');
     }
 }

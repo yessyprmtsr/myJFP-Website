@@ -16,7 +16,7 @@
                 <a href="\admin\tracking" class="waves-effect waves-dark"><i class="fa fa-table"></i> Management Tracking</a>
             </li>
             <li>
-                <a href="\admin\mancourier" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Management Courier </a>
+                <a href="{{ route('Courier.index')}}" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Management Courier </a>
             </li>
         </ul>
     </div>
