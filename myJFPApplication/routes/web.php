@@ -35,6 +35,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/login', [HomeController::class, 'login'])->name('login');
 Route::get('/service', [HomeController::class, 'service'])->name('service');
+Route::get('/history', [HomeController::class, 'history'])->name('history');
 Route::resource('booking',BookingController::class)->middleware('auth');
 Route::resource('courier',DeliveryController::class);
 

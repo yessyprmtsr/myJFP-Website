@@ -17,6 +17,7 @@ class CreateTrackingsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('transaction_id');
             $table->unsignedBigInteger('sprinter_id');
+            $table->string('status_delivery');
             $table->timestamps();
             $table->foreign('transaction_id')->references('id')->on('transactions')
             ->onDelete('CASCADE')

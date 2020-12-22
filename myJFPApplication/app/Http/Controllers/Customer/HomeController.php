@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Customer;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Models\Transactions;
 class HomeController extends Controller
 {
     public function index()
@@ -22,5 +22,10 @@ class HomeController extends Controller
     public function service()
     {
         return view('customer.service');
+    }
+    public function history()
+    {
+        $transactions = Transactions::all();
+        return view('customer.history',compact('transactions'));
     }
 }
