@@ -29,6 +29,7 @@ class DeliveryController extends Controller
      */
     public function create()
     {
+
         $tracks = auth()->user()->trackings;
         // $tracks = Tracking::all();
         return view('courier.list.index',compact('tracks'));
@@ -64,7 +65,8 @@ class DeliveryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tracks = Tracking::find($id);
+        return view('courier.list.update',compact('tracks'));
     }
 
     /**
@@ -76,7 +78,8 @@ class DeliveryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Tracking::find($id)->update($request->all());
+        return redirect()->route('courier.create')->with('status','Update Successfull');
     }
 
     /**
@@ -87,6 +90,9 @@ class DeliveryController extends Controller
      */
     public function destroy($id)
     {
-        //
+       
+        $post = Tracking::where('id',$id)->firstOrFail();
+        $post->delete();
+        return redirect()->route('courier.create')->with('delete','Delete Successfull');
     }
 }

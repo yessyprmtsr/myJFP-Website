@@ -15,6 +15,6 @@ class Sprinter extends Model
     }
     public function trackings()
     {
-        return $this->hasMany(Track::class);
+        return $this->hasMany(Tracking::class);
     }
 }

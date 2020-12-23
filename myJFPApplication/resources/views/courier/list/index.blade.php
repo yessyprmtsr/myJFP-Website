@@ -7,7 +7,20 @@
                      Delivery List
                   </h1>									
     </div>
+    @if (session('status'))
+    <div class="alert alert-success">
+         {{ session('status') }}
+            </div>
+    @endif
+    @if (session('delete'))
+    <div class="alert alert-danger">
+         {{ session('delete') }}
+            </div>
+    @endif
       <div id="page-inner">
+          @if (count($tracks) <= 0)
+              <?php echo 'No Data Found' ?>
+          @else
         <table class="table">
             <thead class="thead">
               <tr>
@@ -30,17 +43,17 @@
                     <td>{{$item->transactions->good_name}}</td>
                     <td>{{$item->status_delivery}}</td>
                     <td>
-                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Detail</button>
-                        <a href="" class="btn btn-primary">Update</a>
-                        <form action="" method="post" class="d-inline" >
-                          @method('DELETE')
-                          @csrf
-                          <button type="submit" class="btn btn-danger"onclick="return confirm('Are you sure?')" >Delete</a>
-                        </form>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-id="{{$item->id}}" data-target="#myModal{{$item->id}}">Detail</button>
+                        <a href="{{ route('courier.edit',$item->id)}}" class="btn btn-primary">Update</a>
+                        <form action="{{ route('courier.destroy',$item->id) }}" method="post" class="d-inline" >
+                            @method('DELETE')
+                            @csrf
+                            <button type="submit" class="btn btn-danger"onclick="return confirm('Are you sure?')" >Delete</a>
+                          </form>
                     </td>
                 </tr>
                <!-- Modal -->
-               <div id="myModal" class="modal fade" role="dialog">
+               <div id="myModal{{$item->id}}" class="modal fade" role="dialog">
                 <div class="modal-dialog">
               
                   <!-- Modal content-->
@@ -74,6 +87,7 @@
                 @endforeach
             </tbody>
           </table>
-              
+              @endif
     </div>
+</div>
 @endsection

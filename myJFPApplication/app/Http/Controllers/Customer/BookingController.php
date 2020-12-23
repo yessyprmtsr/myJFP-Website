@@ -107,7 +107,7 @@ class BookingController extends Controller
             'total' => $request->total
         ]);
         // alihkan halaman ke halaman pegawai
-        return redirect('/');
+        return redirect()->route('history');
     }
 
     /**
@@ -151,6 +151,8 @@ class BookingController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Transactions::where('id',$id)->firstOrFail();
+        $post->delete();
+        return redirect()->route('history');
     }
 }
