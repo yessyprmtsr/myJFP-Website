@@ -10,31 +10,34 @@
       <div id="page-inner">
         <div class="row" style="margin-top:30px">
             <div class="col-lg-6">
+                <form action="{{ route('Transaction.update', $item->id)}}" method="POST">
+                    @method('patch')
+                    @csrf
             <h4>Data Pengirim</h4>
             <br>
             <div class="form-group">
             <label for="exampleFormControlInput1">Nama Pengirim</label>
-            <input type="text" name="namaPengirim" class="form-control" id="exampleFormControlInput1" disabled >
+            <input type="text" name="sender_name" class="form-control"  value="{{ $item->sender_name}}" id="exampleFormControlInput1"  disabled >
             </div>
             <div class="form-group">
             <label for="exampleFormControlInput1">Nomor Telefon</label>
-            <input type="number" name="phonePengirim" class="form-control" id="exampleFormControlInput1" disabled>
+            <input type="number" name="sender_phone_number" class="form-control" value="{{ $item->sender_phone_number}}"id="exampleFormControlInput1" disabled>
             </div>
             <div class="form-group">
             <label for="exampleFormControlInput1">Nama Barang</label>
-            <input type="text" name="namaBarang" class="form-control" id="exampleFormControlInput1" disabled>
+            <input type="text" name="good_name" class="form-control" value="{{ $item->good_name}}" id="exampleFormControlInput1" disabled>
             </div>
             <div class="form-group">
             <label for="exampleFormControlInput1">Jenis Barang</label>
-            <input type="text" name="jenisBarang" class="form-control" id="exampleFormControlInput1" disabled>
+            <input type="text" name="good_type" class="form-control" value="{{ $item->good_type}}" id="exampleFormControlInput1" disabled>
             </div>
             <div class="form-group">
             <label for="exampleFormControlInput1">Berat Barang</label>
-            <input type="number" name="beratBarang" class="form-control" id="exampleFormControlInput1" disabled>
+            <input type="number" name="good_weight" class="form-control" value="{{ $item->good_weight}}" id="exampleFormControlInput1" disabled>
             </div>
             <div class="form-group">
                 <label for="exampleFormControlSelect1">Jenis Service</label>
-                <select  name="jenisService" class="form-control" id="exampleFormControlSelect1" disabled>
+                <select  name="service" class="form-control" id="exampleFormControlSelect1" value="{{ $item->service}}" disabled>
                 <option value="OKE">OKE</option>
                 <option value="YES">YES</option>
                 <option value="REGULER">REGULER</option>
@@ -45,17 +48,17 @@
                 <div class="row">
                     <div class="col-lg-6">
                     <label for="inputZip">Tanggal</label>
-                    <input type="date" class="form-control" name="tanggalAntar" disabled>
+                    <input type="date" class="form-control" name="date" value="{{ $item->date}}" disabled>
                     </div>
                     <div class="col-lg-6">
                     <label for="inputZip">Jam</label>
-                    <input type="time" class="form-control" name="waktuAntar" disabled>
+                    <input type="time" class="form-control" name="time"value="{{ $item->time}}"  disabled>
                     </div>
                 </div>
             </div>
             <div class="form-group">
                 <label for="exampleFormControlSelect1">Metode Pembayaran</label>
-                <select name="bayar" class="form-control" id="exampleFormControlSelect1" disabled>
+                <select name="payment" class="form-control" id="exampleFormControlSelect1" value="{{ $item->payment}}" disabled>
                 <option value="Tunai">Tunai</option>
                 <option value="Transfer">Transfer</option>
                 <option value="Tunai">Tunai di Penerima</option>
@@ -63,7 +66,7 @@
             </div>
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Alamat Pengirim</label>
-                <textarea name="alamatPengirim" class="form-control" id="exampleFormControlTextarea1" rows="3" disabled></textarea>
+                <textarea name="sender_address" class="form-control" id="exampleFormControlTextarea1" rows="3" disabled>{{ $item->sender_address}}</textarea>
             </div>
             </div>
             <div class="col-lg-6">
@@ -71,28 +74,28 @@
             <br>
             <div class="form-group">
             <label for="exampleFormControlInput1">Nama</label>
-            <input type="text" name="namaPenerima" class="form-control" id="exampleFormControlInput1" disabled>
+            <input type="text" name="receiver_name" class="form-control" id="exampleFormControlInput1" value="{{ $item->receiver_name}}" disabled>
             </div>
             <div class="form-group">
             <label for="exampleFormControlInput1">Nomor Telefon</label>
-            <input type="number" name="phonePenerima" class="form-control" id="exampleFormControlInput1" disabled>
+            <input type="number" name="receiver_phone_number" class="form-control" id="exampleFormControlInput1" value="{{ $item->receiver_phone_number}}" disabled>
             </div>
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Alamat Penerima</label>
-                <textarea name="alamatPenerima" class="form-control" id="exampleFormControlTextarea1" rows="3" disabled></textarea>
+                <textarea name="receiver_address" class="form-control" id="exampleFormControlTextarea1" rows="3" disabled>{{ $item->receiver_address}}</textarea>
             </div>
             <div class="row">
             <div class="col-lg-10">
             <div class="form-group">
                 <label for="exampleFormControlInput1">Total</label>
-                <input type="number" name="total" class="form-control" id="exampleFormControlInput1" disabled >
-                <input type="hidden" name="total" class="form-control" id="exampleFormControlInput1" >
+                <input type="number" name="total" class="form-control" id="exampleFormControlInput1" value="{{ $item->total}}" disabled >
+                
             </div>
             </div>
             </div>
             <div class="form-group">
                 <label for="exampleFormControlSelect1">Status</label>
-                <select name="bayar" class="form-control" id="exampleFormControlSelect1">
+                <select name="status_delivery" class="form-control" id="exampleFormControlSelect1" value="{{ $item->status_delivery}}">
                 <option value="Diterima">Pesanan Diterima</option>
                 <option value="Perjalanan">Dalam Perjalanan</option>
                 <option value="Dibawa">Dibawa kurir</option>
@@ -102,32 +105,12 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="exampleFormControlSelect1">Nama Kurir</label>
-                <select name="bayar" class="form-control" id="exampleFormControlSelect1">
-                <option value="Diterima">Adam</option>
-                <option value="Perjalanan">Yessy</option>
-                <option value="Dibawa">Daniel</option>
-                <option value="Warehouse">Ryan</option>
-                <option value="Diantar">Ayub</option>
-                <option value="Diterima">Bebas</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <input type="submit" name="submit" value="Update" style="margin-left: 200px" class="btn btn-info">
-            </div>
+                <button type="submit" style="margin-left: 200px" class="btn btn-info">Update</button>
+            </div> 
             </div>
             </div>
             </form>
             </div>
-
-
-
-
-
-
-
-
-
          </div>
 @endsection
 

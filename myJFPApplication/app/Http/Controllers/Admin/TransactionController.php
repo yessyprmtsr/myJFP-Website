@@ -19,14 +19,10 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        $transactions = auth()->user()->transactions;
-        return view('\admin\transaction\index', compact('transactions'));
+        $transactions = Transactions::all();
+        return view('admin.transaction.index')
+        ->with('transactions', $transactions);
         
-    }
-
-    public function ngeupdate()
-    {
-        return view('\admin\transaction\update');
     }
 
     /**
@@ -58,7 +54,7 @@ class TransactionController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -69,7 +65,8 @@ class TransactionController extends Controller
      */
     public function edit($id)
     {
-        
+        $item = Transactions::find($id);
+        return view('\admin\transaction\update', compact('item'));
     }
 
     /**
@@ -81,7 +78,8 @@ class TransactionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Transactions::find($id)->update($request->all());
+        return redirect()->route('Transaction.index')->with('status','Update Successfull');
     }
 
     /**
@@ -92,6 +90,8 @@ class TransactionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Transactions::where('id',$id)->firstOrFail();
+        $post->delete();
+        return redirect()->route('history');
     }
 }
