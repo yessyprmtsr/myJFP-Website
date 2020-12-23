@@ -24,7 +24,7 @@
             <div class="form-group">
                 <label for="exampleFormControlSelect1">Status</label>
                 <select name="status_delivery" class="form-control" id="exampleFormControlSelect1">
-                    <option value="Diterima" <?php if($tracks['status_delivery']=='Diterima') echo 'selected'; ?>>Pesanan Diterima</option>
+                    <option value="Waiting" <?php if($tracks['status_delivery']=='Waiting') echo 'selected'; ?>>Pesanan Diterima</option>
                     <option value="Perjalanan"<?php if($tracks['status_delivery']=='Perjalanan') echo 'selected'; ?>>Dalam Perjalanan</option>
                     <option value="Dibawa"<?php if($tracks['status_delivery']=='Dibawa') echo 'selected'; ?>>Dibawa kurir</option>
                     <option value="Warehouse"<?php if($tracks['status_delivery']=='Warehouse') echo 'selected'; ?>>Di Warehouse</option>

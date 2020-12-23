@@ -15,6 +15,6 @@ class Transactions extends Model
     }
      public function trackings()
     {
-        return $this->hasMany(Tracking::class);
+        return $this->hasOne(Tracking::class);
     }
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Transactions;
 use App\Models\User;
+use App\Models\Tracking;
 use App\Http\Controllers\Customer\DB;
 use Illuminate\Support\Facades\Auth;
 class HomeController extends Controller
@@ -29,8 +30,10 @@ class HomeController extends Controller
     public function history()
     {
         $transactions = auth()->user()->transactions;
-        // $transactions = Transactions::all();
-        return view('customer.history',compact('transactions'));
+         $tracks = Tracking::all();
+        return view('customer.history')
+        ->with('transactions', $transactions)
+            ->with('tracks', $tracks);
         // $userId = Auth::user()->id;
         // $data['data'] = DB::table('publications')->where('user_id', $userId)->get();
     }
