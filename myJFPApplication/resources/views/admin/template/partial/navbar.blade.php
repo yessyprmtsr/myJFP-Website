@@ -13,7 +13,7 @@
                 <a href="{{ route('Transaction.index')}}" class="waves-effect waves-dark"><i class="fa fa-qrcode"></i> Management Transaction</a>
             </li>      
             <li>
-                <a href="\admin\tracking" class="waves-effect waves-dark"><i class="fa fa-table"></i> Management Tracking</a>
+                <a href="{{ route('Tracking.index')}}" class="waves-effect waves-dark"><i class="fa fa-table"></i> Management Tracking</a>
             </li>
             <li>
                 <a href="{{ route('Courier.index')}}" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Management Courier </a>

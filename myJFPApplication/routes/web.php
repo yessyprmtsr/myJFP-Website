@@ -42,9 +42,7 @@ Route::resource('courier',DeliveryController::class);
 
 // Route untuk Adam
 Route::get('/admin', [AdminController::class, 'index'])->name('layout');
-Route::get('/admin/tracking', [TrackingController::class, 'index'])->name('trackingindex');
-Route::get('/admin/tracking/update', [TrackingController::class, 'ngeupdate'])->name('trackingupdate');
-Route::get('/admin/tracking/create', [TrackingController::class, 'create'])->name('trackingcreate');
+Route::resource('Tracking',TrackingController::class);
 Route::resource('Transaction',TransactionController::class);
 Route::resource('Courier',CourierController::class);
 
