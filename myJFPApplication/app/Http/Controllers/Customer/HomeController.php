@@ -30,10 +30,8 @@ class HomeController extends Controller
     public function history()
     {
         $transactions = auth()->user()->transactions;
-         $tracks = Tracking::all();
         return view('customer.history')
-        ->with('transactions', $transactions)
-            ->with('tracks', $tracks);
+        ->with('transactions', $transactions);
         // $userId = Auth::user()->id;
         // $data['data'] = DB::table('publications')->where('user_id', $userId)->get();
     }

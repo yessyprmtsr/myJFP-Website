@@ -41,10 +41,14 @@
                     <td>{{$item->transactions->sender_name}}</td>
                     <td>{{$item->transactions->receiver_name}}</td>
                     <td>{{$item->transactions->good_name}}</td>
-                    <td>{{$item->status_delivery}}</td>
+                    <td>{{$item->transactions->status_delivery}}</td>
                     <td>
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-id="{{$item->id}}" data-target="#myModal{{$item->id}}">Detail</button>
-                        <a href="{{ route('courier.edit',$item->id)}}" class="btn btn-primary">Update</a>
+                        <form class="btn-group" action="{{ route('courier.update',$item->id) }}" method="post">
+                          @method('PATCH')
+                          @csrf
+                          <button type="submit" class="btn btn-success btn-xs">UPDATE</button>
+                      </form>
                         <form action="{{ route('courier.destroy',$item->id) }}" method="post" class="d-inline" >
                             @method('DELETE')
                             @csrf

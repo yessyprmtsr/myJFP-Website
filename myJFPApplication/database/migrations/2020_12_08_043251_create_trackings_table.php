@@ -18,7 +18,6 @@ class CreateTrackingsTable extends Migration
             $table->unsignedBigInteger('transactions_id');
             $table->unsignedBigInteger('sprinter_id');
             $table->unsignedBigInteger('user_id');
-            $table->string('status_delivery')->nullable();
             $table->timestamps();
             $table->foreign('transactions_id')->references('id')->on('transactions')
             ->onDelete('CASCADE')

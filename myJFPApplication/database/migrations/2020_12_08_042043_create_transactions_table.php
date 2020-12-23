@@ -31,6 +31,7 @@ class CreateTransactionsTable extends Migration
             $table->string('receiver_phone_number');
             $table->text('receiver_address');
             $table->integer('total');
+            $table->string('status_delivery')->default('Waiting');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')
             ->onDelete('CASCADE')

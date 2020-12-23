@@ -78,7 +78,8 @@ class DeliveryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Tracking::find($id)->update($request->all());
+        $transactions = Transactions::find($id);
+        $transactions->update(['status_delivery' =>'Selesai']);
         return redirect()->route('courier.create')->with('status','Update Successfull');
     }
 

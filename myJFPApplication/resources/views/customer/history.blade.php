@@ -15,7 +15,7 @@
   <th scope="col">Nama Barang</th>
   <th scope="col">Berat Barang</th>
   <th scope="col">Total Bayar</th>
-  {{-- <th scope="col">Status</th> --}}
+  <th scope="col">Status Delivery</th>
   <th scope="col">Aksi</th>
 </tr>
 </thead>
@@ -28,6 +28,7 @@
     <td>{{$item->good_name}}</td>
     <td>{{$item->good_weight}}</td>
     <td>{{$item->total}}</td>
+    <td>{{$item->status_delivery}}</td>
     <td>
         <button type="button" class="btn btn-primary" data-toggle="modal" data-id="{{$item->id}}" data-target="#myModal{{$item->id}}"><i class="fa fa-eye"></i></button>
         <form action="{{ route('booking.destroy',$item->id) }}" method="post" class="d-inline" >
@@ -61,6 +62,7 @@
           <p>Date Pickup: {{$item->date}}</p>
           <p>Time Pickup: {{$item->time}}</p>
           <p>Total: {{$item->total}}</p>
+          
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
