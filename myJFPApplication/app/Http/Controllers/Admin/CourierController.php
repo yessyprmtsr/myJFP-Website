@@ -31,7 +31,9 @@ class CourierController extends Controller
      */
     public function create()
     {
-        return view('\admin\mancourier\create');
+        // $sprinters = User::all();
+        $sprinters = User::whereHas('roles', function($q){$q->where('name', 'courier');})->get();
+        return view('\admin\mancourier\create', compact('sprinters'));
     }
 
     /**
@@ -50,7 +52,7 @@ class CourierController extends Controller
             'status_employee' => $request->status_employee
         ]);
         // alihkan halaman ke halaman index courier
-        return redirect('\admin\mancourier');
+        return redirect()->route('Courier.index');
     }
 
     /**

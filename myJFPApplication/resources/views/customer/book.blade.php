@@ -32,7 +32,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Berat Barang</label>
-                    <input  type="number" name="good_weight" class="form-control" id="good_weight">
+                    <input  type="number" step="any" name="good_weight" class="form-control" id="good_weight">
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">Jenis Service</label>

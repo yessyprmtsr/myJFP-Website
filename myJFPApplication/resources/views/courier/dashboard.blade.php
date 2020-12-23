@@ -22,7 +22,7 @@
                   <h3>Delivery List</h3> 
                   </div>
                   <div class="card-action">
-                  <strong>2</strong>
+                  {{-- <strong>{{$tracks}}</strong> --}}
                   </div>
                   </div>
                   </div>

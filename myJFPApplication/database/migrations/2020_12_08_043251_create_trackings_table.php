@@ -17,12 +17,16 @@ class CreateTrackingsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('transaction_id');
             $table->unsignedBigInteger('sprinter_id');
+            $table->unsignedBigInteger('user_id');
             $table->string('status_delivery');
             $table->timestamps();
             $table->foreign('transaction_id')->references('id')->on('transactions')
             ->onDelete('CASCADE')
             ->onUpdate('CASCADE');
             $table->foreign('sprinter_id')->references('id')->on('sprinters')
+            ->onDelete('CASCADE')
+            ->onUpdate('CASCADE');
+            $table->foreign('user_id')->references('id')->on('users')
             ->onDelete('CASCADE')
             ->onUpdate('CASCADE');
         });

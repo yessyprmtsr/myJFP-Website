@@ -13,4 +13,8 @@ class Transactions extends Model
     {
         return $this->belongsTo(User::class);
     }
+     public function trackings()
+    {
+        return $this->hasMany(Track::class);
+    }
 }

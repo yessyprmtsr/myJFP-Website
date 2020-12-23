@@ -7,7 +7,7 @@
                 <a class="waves-effect waves-dark" href="{{ route('courier.index')}}"><i class="fa fa-dashboard"></i> Dashboard</a>
             </li>
             <li>
-                <a href="chart.html" class="waves-effect waves-dark"><i class="fa fa-bar-chart-o"></i> Delivery List </a>
+                <a href="{{ route('courier.create')}}" class="waves-effect waves-dark"><i class="fa fa-bar-chart-o"></i> Delivery List </a>
             </li>
         </ul>
     </div>

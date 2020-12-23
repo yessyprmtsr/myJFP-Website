@@ -19,7 +19,7 @@
                   </div>
                   <div class="card-stacked red">
                   <div class="card-content">
-                  <h3>Manage</h3> 
+                  <h3>{{$jumlah_courier}}</h3> 
                   </div>
                   <div class="card-action">
                   <strong>Courier Data</strong>
@@ -36,7 +36,7 @@
                   </div>
                   <div class="card-stacked orange">
                   <div class="card-content">
-                  <h3>Manage</h3> 
+                  <h3>{{$jumlah_customer}}</h3> 
                   </div>
                   <div class="card-action">
                   <strong>Customer Data</strong>
@@ -52,7 +52,7 @@
                   </div>
                   <div class="card-stacked blue">
                   <div class="card-content">
-                  <h3>Manage</h3> 
+                  <h3>{{$jumlah_transaction}}</h3> 
                   </div>
                   <div class="card-action">
                   <strong>Transaction Data</strong>
@@ -69,10 +69,10 @@
                   </div>
                   <div class="card-stacked green">
                   <div class="card-content">
-                  <h3>Manage</h3> 
+                  <h3>{{$jumlah_tracking}}</h3> 
                   </div>
                   <div class="card-action">
-                  <strong>Tracking</strong>
+                  <strong>Tracking Data</strong>
                   </div>
                   </div>
                   </div> 

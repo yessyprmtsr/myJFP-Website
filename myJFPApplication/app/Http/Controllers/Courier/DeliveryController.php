@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Courier;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Sprinter;
+use App\Models\User;
+use App\Models\Tracking;
+use App\Models\Transactions;
 
 class DeliveryController extends Controller
 {
@@ -14,6 +18,7 @@ class DeliveryController extends Controller
      */
     public function index()
     {
+        
         return view('courier.dashboard');
     }
 
@@ -24,7 +29,9 @@ class DeliveryController extends Controller
      */
     public function create()
     {
-        //
+        $tracks = auth()->user()->trackings;
+        // $tracks = Tracking::all();
+        return view('courier.list.index',compact('tracks'));
     }
 
     /**

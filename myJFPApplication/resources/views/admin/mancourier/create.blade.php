@@ -14,9 +14,14 @@
             <br>
             <form action="{{ route('Courier.store')}}" method="POST">
                 @csrf
-            <div class="form-group">
-            <input  type="hidden" name="user_id" value="{{ auth()->user()->id}}" class="form-control" id="exampleFormControlInput1">
-            </div>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">User Name</label>
+                    <select name="user_id" class="form-control" id="name">
+                        @foreach ($sprinters as $sprinter)
+                        <option value="{{$sprinter->id}}">{{$sprinter->name}}</option>
+                        @endforeach
+                    </select>
+                </div>
             <div class="form-group">
                 <label for="exampleFormControlInput1">Courier Name</label>
                 <input type="text" class="form-control" name="name" id="exampleFormControlInput1">
