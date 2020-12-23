@@ -74,8 +74,11 @@ class CourierController extends Controller
      */
     public function edit($id)
     {
+        $sprinters = User::whereHas('roles', function($q){$q->where('name', 'courier');})->get();
         $kurir = Sprinter::find($id);
-        return view('\admin\mancourier\update', compact('kurir'));
+        return view('\admin\mancourier\update')
+            ->with('sprinters',$sprinters)
+            ->with('kurir',$kurir);
     }
 
     /**

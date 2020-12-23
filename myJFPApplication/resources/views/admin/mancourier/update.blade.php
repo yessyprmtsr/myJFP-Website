@@ -16,7 +16,11 @@
                 @method('patch')
                 @csrf
             <div class="form-group">
-            <input  type="hidden" name="user_id" value="{{ auth()->user()->id}}" class="form-control" id="exampleFormControlInput1">
+                <input  type="hidden" name="id" value="{{ $kurir->id}}" class="form-control" id="exampleFormControlInput1">
+            </div>
+            <div class="form-group">
+              
+                    <input type="hidden" class="form-control" name="user_id" value="{{ $kurir->user->id }}" id="exampleFormControlInput1">
             </div>
             <div class="form-group">
                 <label for="exampleFormControlInput1">Courier Name</label>
