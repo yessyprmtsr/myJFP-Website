@@ -15,7 +15,7 @@ class Tracking extends Model
     }
     public function transactions()
     {
-        return $this->belongsTo(Transactions::class,'transaction_id');
+        return $this->belongsTo(Transactions::class,'transactions_id');
     }
     public function user()
     {
