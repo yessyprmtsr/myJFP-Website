@@ -12,9 +12,13 @@
              {{ session('status') }}
                 </div>
         @endif
+      
       <div id="page-inner">
         <a href="{{ route('Courier.create')}}" class="btn btn-primary" >Add data</a> 
         <br>
+        @if (count($sprinters) <= 0)
+        <?php echo 'No Data Found' ?>
+        @else
         <table class="table">
             <thead class="thead">
               <tr>
@@ -43,7 +47,7 @@
           @endforeach 
             </tbody>
           </table>
-          
+          @endif
           <div id="myModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
           
@@ -74,4 +78,6 @@
           </div>
               
     </div>
+
+</div>
 @endsection

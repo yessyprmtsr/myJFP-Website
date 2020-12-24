@@ -86,7 +86,12 @@ class BookingController extends Controller
         // return redirect()->route('home');
         $cover = null;
         if($request->hasFile('cover')){
-            $cover = $request->file('cover')->store('public/assets/covers');
+            $file = $request->file('cover');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . "." . $extension;
+            $file->move('uploads/image/',$filename);
+            $cover = $filename;
+            // $cover = $request->file('cover')->store('public/assets/covers');
          }
         DB::table('transactions')->insert([
             'user_id' => $request->user_id,

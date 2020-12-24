@@ -21,7 +21,7 @@ class TrackingController extends Controller
     public function index()
     {
         $trackings = Tracking::all();
-        return view('\admin\tracking\index');
+        return view('\admin\tracking\index',compact('trackings'));
     }
 
 
@@ -34,8 +34,9 @@ class TrackingController extends Controller
     public function create()
     {
         $transactions = Transactions::all(); 
-        $sprinters = User::whereHas('roles', function($q){$q->where('name', 'courier');})->get();       
-        return view('\admin\tracking\create', compact('sprinters', 'transactions'));
+        $sprinters = Sprinter::all();
+        $kuriruser = User::whereHas('roles', function($q){$q->where('name', 'courier');})->get();       
+        return view('\admin\tracking\create', compact('sprinters', 'transactions','kuriruser'));
     }
 
     /**
@@ -74,7 +75,7 @@ class TrackingController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('admin.tracking.update');
     }
 
     /**

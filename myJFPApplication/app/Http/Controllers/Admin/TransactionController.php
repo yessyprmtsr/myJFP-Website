@@ -92,6 +92,6 @@ class TransactionController extends Controller
     {
         $post = Transactions::where('id',$id)->firstOrFail();
         $post->delete();
-        return redirect()->route('history');
+        return redirect()->route('Transaction.index')->with('delete','Delete Successfull');
     }
 }

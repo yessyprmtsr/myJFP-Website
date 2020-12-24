@@ -44,7 +44,7 @@
                     <td>{{$item->transactions->status_delivery}}</td>
                     <td>
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-id="{{$item->id}}" data-target="#myModal{{$item->id}}">Detail</button>
-                        <form class="btn-group" action="{{ route('courier.update',$item->id) }}" method="post">
+                        <form class="btn-group" action="{{route('courier.update', [$item->id]) }}" method="post">
                           @method('PATCH')
                           @csrf
                           <button type="submit" class="btn btn-success btn-xs">UPDATE</button>
@@ -79,7 +79,7 @@
                       <p>Good Type: {{$item->transactions->good_type}}</p>
                       <p>Date Pickup: {{$item->transactions->date}}</p>
                       <p>Time Pickup: {{$item->transactions->time}}</p>
-                      <p>Status: {{$item->status_delivery}}</p>
+                     
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

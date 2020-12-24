@@ -96,12 +96,10 @@
             <div class="form-group">
                 <label for="exampleFormControlSelect1">Status</label>
                 <select name="status_delivery" class="form-control" id="exampleFormControlSelect1" value="{{ $item->status_delivery}}">
-                <option value="Diterima">Pesanan Diterima</option>
-                <option value="Perjalanan">Dalam Perjalanan</option>
-                <option value="Dibawa">Dibawa kurir</option>
+                <option value="Diproses">Pesanan Diproses</option>
+                <option value="Di Drop Point">Pesanan Di Bagian Drop Point</option>
                 <option value="Warehouse">Di Warehouse</option>
-                <option value="Diantar">Diantar</option>
-                <option value="Diterima">Diterima</option>
+                <option value="Diantar">Diantar Kurir</option>
                 </select>
             </div>
             <div class="form-group">
