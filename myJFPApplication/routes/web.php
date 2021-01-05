@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\CourierController;
 use App\Http\Controllers\Courier\DeliveryController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Admin\ManUserController;
 
 
 /*
@@ -48,8 +49,8 @@ Route::resource('Courier',CourierController::class);
 
 
 // Route untk daniel
-
-
+Route::resource('ManagementCustomer', ManUserController::class);
+Route::get('/profile', [HomeController::class, 'profile'])->name('profile');
 
 //sisain 2 baris aja biar rapi
 

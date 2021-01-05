@@ -21,7 +21,7 @@
                     <a class="dropbtn">{{ auth()->user()->name}}</a>
                     <i class="fa fa-caret-down"></i>
                     <div class="dropdown-content">
-                       <a href="#"> <i class="fa fa-user-circle"></i> My Profile</a>
+                       <a href="{{ route('profile') }}"> <i class="fa fa-user-circle"></i> My Profile</a>
                       <a href="{{ route('history')}}"><i class="fa fa-history"></i> History</a>
                       <a href="{{ route('logout') }}"
                       onclick="event.preventDefault();

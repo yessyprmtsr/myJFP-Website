@@ -7,7 +7,7 @@
                 <a class="waves-effect waves-dark" href="\admin"><i class="fa fa-dashboard"></i> Dashboard</a>
             </li>
             <li>
-                <a href="chart.html" class="waves-effect waves-dark"><i class="fa fa-bar-chart-o"></i> Management Customer Data </a>
+                <a href="{{ route('ManagementCustomer.index')}}" class="waves-effect waves-dark"><i class="fa fa-bar-chart-o"></i> Management Customer Data </a>
             </li>
             <li>
                 <a href="{{ route('Transaction.index')}}" class="waves-effect waves-dark"><i class="fa fa-qrcode"></i> Management Transaction</a>

@@ -36,4 +36,9 @@ class HomeController extends Controller
         // $data['data'] = DB::table('publications')->where('user_id', $userId)->get();
     }
 
+    public function profile()
+    {
+        return view('customer.profile');
+    }
+
 }
